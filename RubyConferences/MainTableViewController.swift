@@ -16,6 +16,7 @@ class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: "reloadData", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
@@ -69,6 +70,22 @@ class MainTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if(self.tableView.respondsToSelector(Selector("setSeparatorInset:"))){
+            self.tableView.separatorInset = UIEdgeInsetsZero
+        }
+        
+        if(self.tableView.respondsToSelector(Selector("setLayoutMargins:"))){
+            self.tableView.layoutMargins = UIEdgeInsetsZero
+        }
+        
+        if(cell.respondsToSelector(Selector("setLayoutMargins:"))){
+            cell.layoutMargins = UIEdgeInsetsZero
+        }
+        
+        cell.preservesSuperviewLayoutMargins = false
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
