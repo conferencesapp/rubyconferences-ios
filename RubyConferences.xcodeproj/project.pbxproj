@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B21987B1AF3C38800F2F39F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B21987A1AF3C38800F2F39F /* Alamofire.framework */; };
 		5B21987D1AF3C3A700F2F39F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B21987A1AF3C38800F2F39F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
+		5B9F0A5F1AF504C600EE70C8 /* ConferenceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */; };
 		5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663371AF3BEE400976284 /* AppDelegate.swift */; };
 		5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663391AF3BEE400976284 /* ViewController.swift */; };
 		5BC6633D1AF3BEE400976284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		5B21987A1AF3C38800F2F39F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
+		5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceImage.swift; sourceTree = "<group>"; };
 		5BC663321AF3BEE400976284 /* RubyConferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyConferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC663361AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC663371AF3BEE400976284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				5BC663391AF3BEE400976284 /* ViewController.swift */,
 				5BC6633B1AF3BEE400976284 /* Main.storyboard */,
 				5BC663591AF3C18800976284 /* MainTableViewController.swift */,
+				5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */,
+				5B9F0A5C1AF5023900EE70C8 /* Conference.swift */,
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
 				5BC663401AF3BEE400976284 /* LaunchScreen.xib */,
 				5BC663351AF3BEE400976284 /* Supporting Files */,
@@ -238,9 +244,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9F0A5F1AF504C600EE70C8 /* ConferenceImage.swift in Sources */,
 				5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */,
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
 				5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */,
+				5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

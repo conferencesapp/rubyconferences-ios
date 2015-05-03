@@ -63,15 +63,39 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        //        cell.backgroundColor = UIColor(red: 85/255.0, green: 176/255.0, blue: 112/255.0, alpha: 1.0)
         
-        cell.textLabel!.text = self.conferencesData[indexPath.row]["name"] as? String
+        var conferenceInfo = Conference(data: conferencesData[indexPath.row] as! NSDictionary)
+        
+        
+        var yDistance = cell.frame.origin.y - 15
+        
+        var imageButton = UIButton(frame: CGRectMake(10, yDistance + 20 , 40, 40))
+        var image_url = NSURL(string: conferenceInfo.image_url)
+        var data = NSData(contentsOfURL: image_url!)
+        var conferenceImage: UIImage? = UIImage(data: data!)
+        
+        var ImageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
+        ImageView.image = conferenceImage
+        
+        var title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
+        title.text = conferenceInfo.name
+        
+        var twitter: UILabel = cell.contentView.viewWithTag(102) as! UILabel
+        twitter.text = conferenceInfo.twitter_username
+        
+        var location: UILabel = cell.contentView.viewWithTag(103) as! UILabel
+        location.text = conferenceInfo.place
+        
+        var when: UILabel = cell.contentView.viewWithTag(104) as! UILabel
+        when.text = conferenceInfo.when
+
         
         return cell
+    
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         if(self.tableView.respondsToSelector(Selector("setSeparatorInset:"))){
             self.tableView.separatorInset = UIEdgeInsetsZero
         }
@@ -86,6 +110,11 @@ class MainTableViewController: UITableViewController {
         
         cell.preservesSuperviewLayoutMargins = false
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60.0
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
