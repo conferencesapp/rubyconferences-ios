@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9E76B926-6B80-4E43-A1D6-4D00C239504D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>RubyConferences</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E00219AE88265B82AB1B971FAE129CEC613D4E64</key>
 		<string>bitbucket.org:binaryfunction/rubyconferences-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>RubyConferences.xcodeproj/project.xcworkspace</string>
+	<string>RubyConferences.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E00219AE88265B82AB1B971FAE129CEC613D4E64</key>
