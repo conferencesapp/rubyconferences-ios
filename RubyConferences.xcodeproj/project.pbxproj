@@ -146,9 +146,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5BC663311AF3BEE400976284 /* RubyConferences */ = {
+		5BC663311AF3BEE400976284 /* rubyconferences */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "RubyConferences" */;
+			buildConfigurationList = 5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "rubyconferences" */;
 			buildPhases = (
 				5BC6632E1AF3BEE400976284 /* Sources */,
 				5BC6632F1AF3BEE400976284 /* Frameworks */,
@@ -159,7 +159,7 @@
 			);
 			dependencies = (
 			);
-			name = RubyConferences;
+			name = rubyconferences;
 			productName = RubyConferences;
 			productReference = 5BC663321AF3BEE400976284 /* RubyConferences.app */;
 			productType = "com.apple.product-type.application";
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "RubyConferences" */;
+			buildConfigurationList = 5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "rubyconferences" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -212,7 +212,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5BC663311AF3BEE400976284 /* RubyConferences */,
+				5BC663311AF3BEE400976284 /* rubyconferences */,
 				5BC663461AF3BEE400976284 /* RubyConferencesTests */,
 			);
 		};
@@ -265,7 +265,7 @@
 /* Begin PBXTargetDependency section */
 		5BC663491AF3BEE400976284 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5BC663311AF3BEE400976284 /* RubyConferences */;
+			target = 5BC663311AF3BEE400976284 /* rubyconferences */;
 			targetProxy = 5BC663481AF3BEE400976284 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -436,7 +436,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "RubyConferences" */ = {
+		5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "rubyconferences" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BC6634F1AF3BEE400976284 /* Debug */,
@@ -445,7 +445,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "RubyConferences" */ = {
+		5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "rubyconferences" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BC663521AF3BEE400976284 /* Debug */,
