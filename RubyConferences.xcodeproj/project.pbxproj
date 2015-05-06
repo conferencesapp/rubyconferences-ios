@@ -49,7 +49,7 @@
 		5B21987A1AF3C38800F2F39F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceImage.swift; sourceTree = "<group>"; };
-		5BC663321AF3BEE400976284 /* RubyConferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyConferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC663321AF3BEE400976284 /* rubyconferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubyconferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC663361AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC663371AF3BEE400976284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC663391AF3BEE400976284 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		5BC663331AF3BEE400976284 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BC663321AF3BEE400976284 /* RubyConferences.app */,
+				5BC663321AF3BEE400976284 /* rubyconferences.app */,
 				5BC663471AF3BEE400976284 /* RubyConferencesTests.xctest */,
 			);
 			name = Products;
@@ -161,7 +161,7 @@
 			);
 			name = rubyconferences;
 			productName = RubyConferences;
-			productReference = 5BC663321AF3BEE400976284 /* RubyConferences.app */;
+			productReference = 5BC663321AF3BEE400976284 /* rubyconferences.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5BC663461AF3BEE400976284 /* RubyConferencesTests */ = {
