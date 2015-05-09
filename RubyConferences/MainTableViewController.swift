@@ -111,11 +111,20 @@ class MainTableViewController: UITableViewController {
         return 100.0
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> Void{
+    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> Void{
         var websiteLink: String = conferencesData[indexPath.row]["website"] as! String
         var websiteUrl: NSURL? = NSURL(string: websiteLink)
         
         UIApplication.sharedApplication().openURL(websiteUrl!)
         
+    }*/
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
+        if segue.identifier == "viewConference" {
+            let selectedRow = tableView.indexPathForSelectedRow()?.row
+            let viewController = segue.destinationViewController as! ConferenceViewController
+            
+            viewController.conferenceLink = conferencesData[selectedRow!]["website"] as! String
+        }
     }
 }

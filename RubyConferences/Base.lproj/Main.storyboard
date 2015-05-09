@@ -7,7 +7,7 @@
         <!--Ruby Conferences-->
         <scene sceneID="YRh-Vv-oX8">
             <objects>
-                <tableViewController id="wTT-fA-PEW" customClass="MainTableViewController" customModule="RubyConferences" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wTT-fA-PEW" customClass="MainTableViewController" customModule="rubyconferences" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h6j-Vs-qzC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="SRR-xh-8Os" kind="show" identifier="viewConference" id="H7t-ZE-iVn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,6 +62,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3u-0g-bxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1333" y="328"/>
+        </scene>
+        <!--Conference View Controller-->
+        <scene sceneID="4cU-Jm-ab8">
+            <objects>
+                <viewController id="SRR-xh-8Os" customClass="ConferenceViewController" customModule="rubyconferences" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nf7-N3-6Vx"/>
+                        <viewControllerLayoutGuide type="bottom" id="cKJ-W7-w2I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zhd-7o-3xE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-zc-fGO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MHP-SN-AYG">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MHP-SN-AYG" firstAttribute="centerX" secondItem="J8k-zc-fGO" secondAttribute="centerX" id="F64-mB-77f"/>
+                            <constraint firstItem="MHP-SN-AYG" firstAttribute="centerY" secondItem="J8k-zc-fGO" secondAttribute="centerY" id="fD2-mF-P6p"/>
+                            <constraint firstAttribute="trailing" secondItem="J8k-zc-fGO" secondAttribute="trailing" id="fvq-4B-dNu"/>
+                            <constraint firstItem="J8k-zc-fGO" firstAttribute="bottom" secondItem="cKJ-W7-w2I" secondAttribute="top" id="gLj-MC-OSs"/>
+                            <constraint firstItem="J8k-zc-fGO" firstAttribute="leading" secondItem="Zhd-7o-3xE" secondAttribute="leading" id="pt2-DJ-wPI"/>
+                            <constraint firstItem="J8k-zc-fGO" firstAttribute="top" secondItem="Zhd-7o-3xE" secondAttribute="top" id="vNm-1B-cys"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="MHP-SN-AYG" id="FCP-34-Uai"/>
+                        <outlet property="webView" destination="J8k-zc-fGO" id="5ED-ry-zr5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Rv-yc-akn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2027" y="328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IgK-if-vzT">
