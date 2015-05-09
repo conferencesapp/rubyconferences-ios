@@ -25,7 +25,7 @@ class MainTableViewController: UITableViewController {
     }
     
     func getConferences(){
-        Alamofire.request(.GET, "https://rubyconferences.herokuapp.com/api/v1/conferences", parameters: ["foo": "bar"])
+        Alamofire.request(.GET, "https://conferences.inruby.org/api/v1/conferences")
             .responseJSON { (request, response, data, error) in
                 var resultData: NSArray = data as! NSArray
                 self.processResults(resultData)
