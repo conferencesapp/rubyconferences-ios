@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5BC663311AF3BEE400976284"
-               BuildableName = "RubyConferences.app"
-               BlueprintName = "RubyConferences"
-               ReferencedContainer = "container:RubyConferences.xcodeproj">
+               BuildableName = "rubyconferences.app"
+               BlueprintName = "rubyconferences"
+               ReferencedContainer = "container:rubyconferences.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "5BC663461AF3BEE400976284"
                BuildableName = "RubyConferencesTests.xctest"
                BlueprintName = "RubyConferencesTests"
-               ReferencedContainer = "container:RubyConferences.xcodeproj">
+               ReferencedContainer = "container:rubyconferences.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "5BC663461AF3BEE400976284"
                BuildableName = "RubyConferencesTests.xctest"
                BlueprintName = "RubyConferencesTests"
-               ReferencedContainer = "container:RubyConferences.xcodeproj">
+               ReferencedContainer = "container:rubyconferences.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5BC663311AF3BEE400976284"
-            BuildableName = "RubyConferences.app"
-            BlueprintName = "RubyConferences"
-            ReferencedContainer = "container:RubyConferences.xcodeproj">
+            BuildableName = "rubyconferences.app"
+            BlueprintName = "rubyconferences"
+            ReferencedContainer = "container:rubyconferences.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5BC663311AF3BEE400976284"
-            BuildableName = "RubyConferences.app"
-            BlueprintName = "RubyConferences"
-            ReferencedContainer = "container:RubyConferences.xcodeproj">
+            BuildableName = "rubyconferences.app"
+            BlueprintName = "rubyconferences"
+            ReferencedContainer = "container:rubyconferences.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5BC663311AF3BEE400976284"
-            BuildableName = "RubyConferences.app"
-            BlueprintName = "RubyConferences"
-            ReferencedContainer = "container:RubyConferences.xcodeproj">
+            BuildableName = "rubyconferences.app"
+            BlueprintName = "rubyconferences"
+            ReferencedContainer = "container:rubyconferences.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
