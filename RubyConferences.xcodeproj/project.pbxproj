@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5B1EEB111AFFD86300674109 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EEB101AFFD86300674109 /* GlobalVariables.swift */; };
+		5B1F807D1B02997C004B97C5 /* RubyConferences.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */; };
+		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
 		5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
-		5B9F0A5F1AF504C600EE70C8 /* ConferenceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */; };
 		5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663371AF3BEE400976284 /* AppDelegate.swift */; };
 		5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663391AF3BEE400976284 /* ViewController.swift */; };
 		5BC6633D1AF3BEE400976284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
@@ -48,9 +49,11 @@
 		145E60EEBD0DFE8CD1CFBA57 /* Pods-rubyconferences.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.debug.xcconfig"; sourceTree = "<group>"; };
 		244ADA0B84DA02347F850397 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5B1EEB101AFFD86300674109 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalVariables.swift; path = ../GlobalVariables.swift; sourceTree = "<group>"; };
+		5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RubyConferences.xcdatamodel; sourceTree = "<group>"; };
+		5B69AAD51B074DF1001EDAF7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
+		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
 		5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceViewController.swift; sourceTree = "<group>"; };
 		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
-		5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceImage.swift; sourceTree = "<group>"; };
 		5BC663321AF3BEE400976284 /* rubyconferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubyconferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC663361AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC663371AF3BEE400976284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		5342451EA050E32B699B327F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */,
 				6283CE49B627565ECC2D5023 /* Pods_rubyconferences.framework */,
 				AE73C3B2AA2B0188D65D8B65 /* Pods.framework */,
 			);
@@ -120,16 +124,17 @@
 			isa = PBXGroup;
 			children = (
 				5B1EEB101AFFD86300674109 /* GlobalVariables.swift */,
+				5B69AAD51B074DF1001EDAF7 /* Reachability.swift */,
 				5BC663371AF3BEE400976284 /* AppDelegate.swift */,
 				5BC663391AF3BEE400976284 /* ViewController.swift */,
 				5BC6633B1AF3BEE400976284 /* Main.storyboard */,
 				5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */,
 				5BC663591AF3C18800976284 /* MainTableViewController.swift */,
-				5B9F0A5E1AF504C600EE70C8 /* ConferenceImage.swift */,
 				5B9F0A5C1AF5023900EE70C8 /* Conference.swift */,
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
 				5BC663401AF3BEE400976284 /* LaunchScreen.xib */,
 				5BC663351AF3BEE400976284 /* Supporting Files */,
+				5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */,
 			);
 			path = RubyConferences;
 			sourceTree = "<group>";
@@ -281,7 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi";
 			showEnvVarsInLog = 0;
 		};
 		94A3F6A15D46E9BC511F6193 /* Copy Pods Resources */ = {
@@ -322,10 +327,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1EEB111AFFD86300674109 /* GlobalVariables.swift in Sources */,
-				5B9F0A5F1AF504C600EE70C8 /* ConferenceImage.swift in Sources */,
+				5B1F807D1B02997C004B97C5 /* RubyConferences.xcdatamodeld in Sources */,
 				5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */,
 				5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */,
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
+				5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */,
 				5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */,
 				5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */,
 			);
@@ -455,7 +461,10 @@
 			baseConfigurationReference = C5804D1E3D17A7AA66EF62B5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rashmiyadav/Downloads/realm-swift-0.92.2/ios",
+				);
 				INFOPLIST_FILE = RubyConferences/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -468,7 +477,10 @@
 			baseConfigurationReference = 244ADA0B84DA02347F850397 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rashmiyadav/Downloads/realm-swift-0.92.2/ios",
+				);
 				INFOPLIST_FILE = RubyConferences/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -541,6 +553,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */,
+			);
+			currentVersion = 5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */;
+			path = RubyConferences.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5BC6632A1AF3BEE400976284 /* Project object */;
 }

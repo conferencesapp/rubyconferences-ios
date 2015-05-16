@@ -8,11 +8,13 @@
 
 import UIKit
 import Alamofire
-
+import RealmSwift
 
 class MainTableViewController: UITableViewController {
     let CellIdentifier = "cell"
+    
     var conferencesData = []
+    var conferenceArray = Realm().objects(Conference).sorted("startDate")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +23,16 @@ class MainTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "reloadData", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         
-        getConferences()
+        if Reachability.isConnectedToNetwork() {
+            getConferencesFromApi()
+        }
     }
     
-    func getConferences(){
+    func getConferencesFromApi(){
         Alamofire.request(.GET, "\(apiUrl)/conferences")
             .responseJSON { (request, response, data, error) in
                 var resultData: NSArray = data as! NSArray
+                
                 self.processResults(resultData)
         }
         
@@ -35,12 +40,96 @@ class MainTableViewController: UITableViewController {
 
     func processResults(data: NSArray) -> Void{
         self.conferencesData = data
+        
+        var localIds: Set<Int> =  getLocalIds()
+        var serverIds: Set<Int> = getServerIds()
+        var removableIds = localIds.subtract(serverIds)
+        
+        let realm = Realm()
+        
+        realm.write {
+          for(data) in self.conferencesData {
+            var conf = Conference()
+            conf.id = data["id"] as! Int!
+            conf.name = data["name"] as! String!
+            conf.location = data["location"] as! String
+            
+            conf.twitter_username = self.formatTwitterUsername(data["twitter_username"] as! String)
+            
+            conf.image_url = data["image_url"] as! String!
+            conf.place = data["location"] as! String!
+            conf.when = data["when"] as! String!
+            if let ws = data["website"] as? String{
+                conf.website = ws
+            }
+            conf.startDate = self.formatStartdate(data["start_date"] as! String)
+            realm.add(conf, update: true)
+          }
+            
+          //delete expired confs
+           for(id) in removableIds{
+                var deleteConf = realm.objects(Conference).filter("id= \(id)")
+                realm.delete(deleteConf)
+            }
+        }
+        
         self.tableView.reloadData()
     }
     
+    func formatTwitterUsername(username: String) -> String{
+        var twitter: String = username
+            
+        if twitter != ""{
+            twitter =  "@\(username)"
+        }
+        return twitter
+    }
+    
+    func formatStartdate(stareDate: String) -> NSDate {
+        var dateString = stareDate// change to your date format
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        var date = dateFormatter.dateFromString(dateString)
+        return date!
+    }
+    
+    func getLocalIds() -> Set<Int>{
+        var localIds =  Set<Int>()
+        for(lconf) in self.conferenceArray{
+            localIds.insert(lconf["id"] as! Int)
+        }
+        
+        return localIds
+    }
+    
+    func getServerIds() -> Set<Int>{
+        var serverIds =  Set<Int>()
+        for(sconf) in self.conferencesData{
+            serverIds.insert(sconf["id"] as! Int)
+        }
+        
+        return serverIds
+    }
+    
     func reloadData(){
+        if Reachability.isConnectedToNetwork() {
+            getConferencesFromApi()
+        }
+        else{
+            var alert = UIAlertView(title: "No Internet connection", message: "Please ensure you are connected to the Internet", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
         self.refreshControl?.endRefreshing()
-        getConferences()
+    }
+    
+    func deleteAll(){
+        let realm = Realm()
+        realm.write {
+            realm.deleteAll()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,12 +140,12 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        var count: Int = self.conferencesData.count > 0 ? 1 : 0
+        var count: Int = self.conferenceArray.count > 0 ? 1 : 0
         return count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var row_count: Int = self.conferencesData.count > 0 ? self.conferencesData.count : 0
+        var row_count: Int = self.conferenceArray.count > 0 ? self.conferenceArray.count : 0
         return row_count
     }
     
@@ -64,14 +153,18 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
-        var conferenceInfo = Conference(data: conferencesData[indexPath.row] as! NSDictionary)
+       // var conferenceInfo = Conference(data: conferencesData[indexPath.row] as! NSDictionary)
+        var conferenceInfo = conferenceArray[indexPath.row]
         
-        var image_url = NSURL(string: conferenceInfo.image_url)
-        var data = NSData(contentsOfURL: image_url!)
-        var conferenceImage: UIImage? = UIImage(data: data!)
+        if Reachability.isConnectedToNetwork() {
+            var image_url = NSURL(string: conferenceInfo.image_url)
+            var data = NSData(contentsOfURL: image_url!)
+            var conferenceImage: UIImage? = UIImage(data: data!)
+            
+            var ImageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
+            ImageView.image = conferenceImage
+        }
         
-        var ImageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
-        ImageView.image = conferenceImage
         
         var title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
         title.text = conferenceInfo.name
@@ -123,8 +216,8 @@ class MainTableViewController: UITableViewController {
         if segue.identifier == "viewConference" {
             let selectedRow = tableView.indexPathForSelectedRow()?.row
             let viewController = segue.destinationViewController as! ConferenceViewController
-            
-            viewController.conferenceLink = conferencesData[selectedRow!]["website"] as! String
+
+            viewController.conferenceLink = (conferenceArray[selectedRow!]).website
         }
     }
 }

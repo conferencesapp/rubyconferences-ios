@@ -6,30 +6,21 @@
 //
 //
 
-import Foundation
 
-struct Conference {
-    var name: String
-    var location: String
-    var twitter_username: String
-    var image_url: String
-    var place: String
-    var when: String
-    //    var description: String?
+import RealmSwift
+
+class Conference: Object {
+    dynamic var id: Int = 0
+    dynamic var name: String = ""
+    dynamic var location: String = ""
+    dynamic var place: String = ""
+    dynamic var image_url: String = ""
+    dynamic var twitter_username: String = ""
+    dynamic var website: String = ""
+    dynamic var when: String? = ""
+    dynamic var startDate: NSDate? = NSDate()
     
-    init(data: NSDictionary){
-        name = data["name"] as! String!
-        location = data["location"] as! String
-        
-        twitter_username = data["twitter_username"] as! String
-        if twitter_username != ""{
-            twitter_username =  "@\(twitter_username)"
-        }
-        
-    
-        image_url = data["image_url"] as! String!
-        place = data["location"] as! String!
-        when = data["when"] as! String!
-        //        description = conferenceData["description"] as! String!
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
