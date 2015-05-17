@@ -4,3 +4,4 @@ use_frameworks!
 
 pod 'Alamofire', '~> 1.2'
 pod 'RealmSwift'
+pod 'Skeets', '~> 0.9.2'

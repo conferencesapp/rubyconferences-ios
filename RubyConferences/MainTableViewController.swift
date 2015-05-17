@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import RealmSwift
+import Skeets
 
 class MainTableViewController: UITableViewController {
     let CellIdentifier = "cell"
@@ -132,6 +133,23 @@ class MainTableViewController: UITableViewController {
         }
     }
 
+    func cacheImage(imageView: UIImageView, imageUrl: String) -> Void {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        ImageManager.sharedManager.cache.diskDirectory = "\(paths[0])/ImageCache"
+        
+        ImageManager.sharedManager.cache.cleanDisk()
+        
+        //fetch the image
+        ImageManager.fetch(imageUrl,
+            progress: { (status: Double) in
+                println("updating some UI for this: \(status)") //useful if you have some kind of progress dialog as the image loads
+            },success: { (data: NSData) in
+                imageView.image = UIImage(data: data) //set the image data
+            }, failure: { (error: NSError) in
+                println("failed to get an image: \(error)")
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -152,17 +170,12 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        
-       // var conferenceInfo = Conference(data: conferencesData[indexPath.row] as! NSDictionary)
+    
         var conferenceInfo = conferenceArray[indexPath.row]
         
         if Reachability.isConnectedToNetwork() {
-            var image_url = NSURL(string: conferenceInfo.image_url)
-            var data = NSData(contentsOfURL: image_url!)
-            var conferenceImage: UIImage? = UIImage(data: data!)
-            
-            var ImageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
-            ImageView.image = conferenceImage
+            var imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
+            self.cacheImage(imageView, imageUrl: conferenceInfo.image_url)
         }
         
         
@@ -177,7 +190,6 @@ class MainTableViewController: UITableViewController {
         
         var when: UILabel = cell.contentView.viewWithTag(104) as! UILabel
         when.text = conferenceInfo.when
-
         
         return cell
     
