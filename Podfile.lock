@@ -1,24 +1,21 @@
 PODS:
   - Alamofire (1.2.2)
+  - HanekeSwift (0.9.1)
   - Realm (0.92.3):
     - Realm/Headers (= 0.92.3)
   - Realm/Headers (0.92.3)
   - RealmSwift (0.92.3):
     - Realm (= 0.92.3)
-  - Skeets (0.9.4):
-    - SwiftHTTP (~> 0.9.3)
-  - SwiftHTTP (0.9.4)
 
 DEPENDENCIES:
   - Alamofire (~> 1.2)
+  - HanekeSwift
   - RealmSwift (~> 0.92.3)
-  - Skeets (~> 0.9.2)
 
 SPEC CHECKSUMS:
   Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
+  HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
   Realm: bf604805d5e897850da488260f93889f510924b3
   RealmSwift: a5e48c7d5774eaa299b0b3a843add3b55e7f0061
-  Skeets: 01ea1927761b68d42940a7a2f74521b9a3ed588c
-  SwiftHTTP: c2f880b1723e6e97c31517dab29a1b5c0bc1f49d
 
 COCOAPODS: 0.37.1

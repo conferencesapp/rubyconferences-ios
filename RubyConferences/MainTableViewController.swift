@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import RealmSwift
-import Skeets
+import Haneke
 
 class MainTableViewController: UITableViewController {
     let CellIdentifier = "cell"
@@ -132,23 +132,6 @@ class MainTableViewController: UITableViewController {
             realm.deleteAll()
         }
     }
-
-    func cacheImage(imageView: UIImageView, imageUrl: String) -> Void {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        ImageManager.sharedManager.cache.diskDirectory = "\(paths[0])/ImageCache"
-        
-        ImageManager.sharedManager.cache.cleanDisk()
-        
-        //fetch the image
-        ImageManager.fetch(imageUrl,
-            progress: { (status: Double) in
-                println("updating some UI for this: \(status)") //useful if you have some kind of progress dialog as the image loads
-            },success: { (data: NSData) in
-                imageView.image = UIImage(data: data) //set the image data
-            }, failure: { (error: NSError) in
-                println("failed to get an image: \(error)")
-        })
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -172,12 +155,9 @@ class MainTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
     
         var conferenceInfo = conferenceArray[indexPath.row]
-        
-        if Reachability.isConnectedToNetwork() {
-            var imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
-            self.cacheImage(imageView, imageUrl: conferenceInfo.image_url)
-        }
-        
+        var imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
+        let imageUrl = NSURL(string: conferenceInfo.image_url)!
+        imageView.hnk_setImageFromURL(imageUrl)
         
         var title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
         title.text = conferenceInfo.name
