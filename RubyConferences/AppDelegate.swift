@@ -36,18 +36,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         sendDevicetokentoServer(deviceTokenString)
         
-        //application.isRegisteredForRemoteNotifications())
     }
     
     func sendDevicetokentoServer(deviceTokenString: String) {
-        var parameters = ["device":
-                            [
-                                "token": deviceTokenString
-                            ]
-                         ]
+        var parameters = [
+            "device":
+                [
+                    "token": deviceTokenString
+            ]
+        ]
         
-        Alamofire.request(.POST, "\(apiUrl)/devices", parameters: parameters)
-    }
+        var JSONSerializationError: NSError? = nil
+        let URL = NSURL(string: apiUrl)!
+        var path = "/devices"
+        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        mutableURLRequest.HTTPMethod = "POST"
+        mutableURLRequest.HTTPBody = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &JSONSerializationError)
+        mutableURLRequest.setValue("Token token=\(apiSecret)", forHTTPHeaderField: "Authorization")
+        
+        Alamofire.request(Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0)    }
     
     func application( application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError ) {
     }
