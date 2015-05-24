@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B1EEB111AFFD86300674109 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EEB101AFFD86300674109 /* GlobalVariables.swift */; };
 		5B1F807D1B02997C004B97C5 /* RubyConferences.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */; };
 		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
 		5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */; };
@@ -19,6 +18,7 @@
 		5BC663421AF3BEE400976284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC663401AF3BEE400976284 /* LaunchScreen.xib */; };
 		5BC6634E1AF3BEE400976284 /* RubyConferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6634D1AF3BEE400976284 /* RubyConferencesTests.swift */; };
 		5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663591AF3C18800976284 /* MainTableViewController.swift */; };
+		5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDDA471B11BA75006C4C28 /* Secrets.swift */; };
 		783C1AF336EC1438BC9FAC13 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73C3B2AA2B0188D65D8B65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,6 @@
 /* Begin PBXFileReference section */
 		145E60EEBD0DFE8CD1CFBA57 /* Pods-rubyconferences.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.debug.xcconfig"; sourceTree = "<group>"; };
 		244ADA0B84DA02347F850397 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		5B1EEB101AFFD86300674109 /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalVariables.swift; path = ../GlobalVariables.swift; sourceTree = "<group>"; };
 		5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RubyConferences.xcdatamodel; sourceTree = "<group>"; };
 		5B69AAD51B074DF1001EDAF7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
 		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		5BC6634C1AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC6634D1AF3BEE400976284 /* RubyConferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyConferencesTests.swift; sourceTree = "<group>"; };
 		5BC663591AF3C18800976284 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		5BDDDA471B11BA75006C4C28 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		6283CE49B627565ECC2D5023 /* Pods_rubyconferences.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rubyconferences.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69EB08D2B05CA427E8456F2 /* Pods-rubyconferences.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.release.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.release.xcconfig"; sourceTree = "<group>"; };
 		AE73C3B2AA2B0188D65D8B65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +103,7 @@
 		5BC663291AF3BEE400976284 = {
 			isa = PBXGroup;
 			children = (
+				5BDDDA471B11BA75006C4C28 /* Secrets.swift */,
 				5BC663341AF3BEE400976284 /* RubyConferences */,
 				5BC6634A1AF3BEE400976284 /* RubyConferencesTests */,
 				5BC663331AF3BEE400976284 /* Products */,
@@ -123,7 +124,6 @@
 		5BC663341AF3BEE400976284 /* RubyConferences */ = {
 			isa = PBXGroup;
 			children = (
-				5B1EEB101AFFD86300674109 /* GlobalVariables.swift */,
 				5B69AAD51B074DF1001EDAF7 /* Reachability.swift */,
 				5BC663371AF3BEE400976284 /* AppDelegate.swift */,
 				5BC663391AF3BEE400976284 /* ViewController.swift */,
@@ -327,8 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1EEB111AFFD86300674109 /* GlobalVariables.swift in Sources */,
 				5B1F807D1B02997C004B97C5 /* RubyConferences.xcdatamodeld in Sources */,
+				5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */,
 				5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */,
 				5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */,
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
