@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+pod install
+
+if [ ! -d Secrets.swift ]; then
+  cp Secrets.swift.example Secrets.swift
+  echo ""
+  echo "-------------------------------------------------"
+  echo "Created Secrets.swift."
+  echo "-------------------------------------------------"
+fi
