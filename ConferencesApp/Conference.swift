@@ -1,6 +1,6 @@
 //
 //  Conference.swift
-//  RubyConferences
+//  ConferencesApp
 //
 //  Created by Rashmi Yadav on 5/2/15.
 //

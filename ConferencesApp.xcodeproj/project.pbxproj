@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B1F807D1B02997C004B97C5 /* RubyConferences.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */; };
+		5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
 		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
 		5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
@@ -16,7 +16,7 @@
 		5BC6633D1AF3BEE400976284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
 		5BC6633F1AF3BEE400976284 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633E1AF3BEE400976284 /* Images.xcassets */; };
 		5BC663421AF3BEE400976284 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC663401AF3BEE400976284 /* LaunchScreen.xib */; };
-		5BC6634E1AF3BEE400976284 /* RubyConferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6634D1AF3BEE400976284 /* RubyConferencesTests.swift */; };
+		5BC6634E1AF3BEE400976284 /* ConferencesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6634D1AF3BEE400976284 /* ConferencesAppTests.swift */; };
 		5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663591AF3C18800976284 /* MainTableViewController.swift */; };
 		5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDDA471B11BA75006C4C28 /* Secrets.swift */; };
 		783C1AF336EC1438BC9FAC13 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73C3B2AA2B0188D65D8B65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -28,7 +28,7 @@
 			containerPortal = 5BC6632A1AF3BEE400976284 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5BC663311AF3BEE400976284;
-			remoteInfo = RubyConferences;
+			remoteInfo = ConferencesApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -48,21 +48,21 @@
 /* Begin PBXFileReference section */
 		145E60EEBD0DFE8CD1CFBA57 /* Pods-rubyconferences.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.debug.xcconfig"; sourceTree = "<group>"; };
 		244ADA0B84DA02347F850397 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RubyConferences.xcdatamodel; sourceTree = "<group>"; };
+		5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConferencesApp.xcdatamodel; sourceTree = "<group>"; };
 		5B69AAD51B074DF1001EDAF7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
 		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
 		5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceViewController.swift; sourceTree = "<group>"; };
 		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
-		5BC663321AF3BEE400976284 /* rubyconferences.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubyconferences.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC663321AF3BEE400976284 /* ConferencesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferencesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC663361AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC663371AF3BEE400976284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC663391AF3BEE400976284 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BC6633C1AF3BEE400976284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BC6633E1AF3BEE400976284 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BC663411AF3BEE400976284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5BC663471AF3BEE400976284 /* RubyConferencesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RubyConferencesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BC663471AF3BEE400976284 /* ConferencesAppTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConferencesAppTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC6634C1AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BC6634D1AF3BEE400976284 /* RubyConferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyConferencesTests.swift; sourceTree = "<group>"; };
+		5BC6634D1AF3BEE400976284 /* ConferencesAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferencesAppTests.swift; sourceTree = "<group>"; };
 		5BC663591AF3C18800976284 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		5BDDDA471B11BA75006C4C28 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		6283CE49B627565ECC2D5023 /* Pods_rubyconferences.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rubyconferences.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				5BDDDA471B11BA75006C4C28 /* Secrets.swift */,
-				5BC663341AF3BEE400976284 /* RubyConferences */,
-				5BC6634A1AF3BEE400976284 /* RubyConferencesTests */,
+				5BC663341AF3BEE400976284 /* ConferencesApp */,
+				5BC6634A1AF3BEE400976284 /* ConferencesAppTests */,
 				5BC663331AF3BEE400976284 /* Products */,
 				BC042624C7F8E95130A61890 /* Pods */,
 				5342451EA050E32B699B327F /* Frameworks */,
@@ -115,13 +115,13 @@
 		5BC663331AF3BEE400976284 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BC663321AF3BEE400976284 /* rubyconferences.app */,
-				5BC663471AF3BEE400976284 /* RubyConferencesTests.xctest */,
+				5BC663321AF3BEE400976284 /* ConferencesApp.app */,
+				5BC663471AF3BEE400976284 /* ConferencesAppTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5BC663341AF3BEE400976284 /* RubyConferences */ = {
+		5BC663341AF3BEE400976284 /* ConferencesApp */ = {
 			isa = PBXGroup;
 			children = (
 				5B69AAD51B074DF1001EDAF7 /* Reachability.swift */,
@@ -134,9 +134,9 @@
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
 				5BC663401AF3BEE400976284 /* LaunchScreen.xib */,
 				5BC663351AF3BEE400976284 /* Supporting Files */,
-				5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */,
+				5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */,
 			);
-			path = RubyConferences;
+			path = ConferencesApp;
 			sourceTree = "<group>";
 		};
 		5BC663351AF3BEE400976284 /* Supporting Files */ = {
@@ -147,13 +147,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5BC6634A1AF3BEE400976284 /* RubyConferencesTests */ = {
+		5BC6634A1AF3BEE400976284 /* ConferencesAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				5BC6634D1AF3BEE400976284 /* RubyConferencesTests.swift */,
+				5BC6634D1AF3BEE400976284 /* ConferencesAppTests.swift */,
 				5BC6634B1AF3BEE400976284 /* Supporting Files */,
 			);
-			path = RubyConferencesTests;
+			path = ConferencesAppTests;
 			sourceTree = "<group>";
 		};
 		5BC6634B1AF3BEE400976284 /* Supporting Files */ = {
@@ -178,9 +178,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5BC663311AF3BEE400976284 /* rubyconferences */ = {
+		5BC663311AF3BEE400976284 /* ConferencesApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "rubyconferences" */;
+			buildConfigurationList = 5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "ConferencesApp" */;
 			buildPhases = (
 				63FBECD5BB5315787F4C2197 /* Check Pods Manifest.lock */,
 				5BC6632E1AF3BEE400976284 /* Sources */,
@@ -194,14 +194,14 @@
 			);
 			dependencies = (
 			);
-			name = rubyconferences;
-			productName = RubyConferences;
-			productReference = 5BC663321AF3BEE400976284 /* rubyconferences.app */;
+			name = ConferencesApp;
+			productName = ConferencesApp;
+			productReference = 5BC663321AF3BEE400976284 /* ConferencesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5BC663461AF3BEE400976284 /* RubyConferencesTests */ = {
+		5BC663461AF3BEE400976284 /* ConferencesAppTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BC663541AF3BEE400976284 /* Build configuration list for PBXNativeTarget "RubyConferencesTests" */;
+			buildConfigurationList = 5BC663541AF3BEE400976284 /* Build configuration list for PBXNativeTarget "ConferencesAppTest" */;
 			buildPhases = (
 				5BC663431AF3BEE400976284 /* Sources */,
 				5BC663441AF3BEE400976284 /* Frameworks */,
@@ -212,9 +212,9 @@
 			dependencies = (
 				5BC663491AF3BEE400976284 /* PBXTargetDependency */,
 			);
-			name = RubyConferencesTests;
-			productName = RubyConferencesTests;
-			productReference = 5BC663471AF3BEE400976284 /* RubyConferencesTests.xctest */;
+			name = ConferencesAppTest;
+			productName = ConferencesAppTests;
+			productReference = 5BC663471AF3BEE400976284 /* ConferencesAppTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "rubyconferences" */;
+			buildConfigurationList = 5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "ConferencesApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -248,8 +248,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5BC663311AF3BEE400976284 /* rubyconferences */,
-				5BC663461AF3BEE400976284 /* RubyConferencesTests */,
+				5BC663311AF3BEE400976284 /* ConferencesApp */,
+				5BC663461AF3BEE400976284 /* ConferencesAppTest */,
 			);
 		};
 /* End PBXProject section */
@@ -327,7 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1F807D1B02997C004B97C5 /* RubyConferences.xcdatamodeld in Sources */,
+				5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */,
 				5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */,
 				5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */,
 				5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */,
@@ -342,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC6634E1AF3BEE400976284 /* RubyConferencesTests.swift in Sources */,
+				5BC6634E1AF3BEE400976284 /* ConferencesAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +351,7 @@
 /* Begin PBXTargetDependency section */
 		5BC663491AF3BEE400976284 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5BC663311AF3BEE400976284 /* rubyconferences */;
+			target = 5BC663311AF3BEE400976284 /* ConferencesApp */;
 			targetProxy = 5BC663481AF3BEE400976284 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -465,10 +465,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = RubyConferences/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ConferencesApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ConferencesApp;
 				PROVISIONING_PROFILE = "cffa701e-51e6-4138-900e-c1766b1dab65";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -482,10 +482,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = RubyConferences/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ConferencesApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ConferencesApp;
 				PROVISIONING_PROFILE = "42792e4c-052d-4088-875b-c5631b27392e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -503,10 +503,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RubyConferencesTests/Info.plist;
+				INFOPLIST_FILE = ConferencesAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RubyConferences.app/RubyConferences";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConferencesApp.app/ConferencesApp";
 			};
 			name = Debug;
 		};
@@ -518,17 +518,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = RubyConferencesTests/Info.plist;
+				INFOPLIST_FILE = ConferencesAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RubyConferences.app/RubyConferences";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConferencesApp.app/ConferencesApp";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "rubyconferences" */ = {
+		5BC6632D1AF3BEE400976284 /* Build configuration list for PBXProject "ConferencesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BC6634F1AF3BEE400976284 /* Debug */,
@@ -537,7 +537,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "rubyconferences" */ = {
+		5BC663511AF3BEE400976284 /* Build configuration list for PBXNativeTarget "ConferencesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BC663521AF3BEE400976284 /* Debug */,
@@ -546,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5BC663541AF3BEE400976284 /* Build configuration list for PBXNativeTarget "RubyConferencesTests" */ = {
+		5BC663541AF3BEE400976284 /* Build configuration list for PBXNativeTarget "ConferencesAppTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BC663551AF3BEE400976284 /* Debug */,
@@ -558,13 +558,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5B1F807B1B02997C004B97C5 /* RubyConferences.xcdatamodeld */ = {
+		5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */,
+				5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */,
 			);
-			currentVersion = 5B1F807C1B02997C004B97C5 /* RubyConferences.xcdatamodel */;
-			path = RubyConferences.xcdatamodeld;
+			currentVersion = 5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */;
+			path = ConferencesApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

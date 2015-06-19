@@ -1,6 +1,6 @@
 //
-//  RubyConferencesTests.swift
-//  RubyConferencesTests
+//  ConferencesAppTests.swift
+//  ConferencesAppTests
 //
 //  Created by Rashmi Yadav on 5/1/15.
 //
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class RubyConferencesTests: XCTestCase {
+class ConferencesAppTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
