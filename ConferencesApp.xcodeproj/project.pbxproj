@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
 		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
-		5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
+		5BA999701B809C9500F81911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
+		5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */; };
+		5BA999731B80A65600F81911 /* ConferenceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */; };
+		5BA999741B80A65800F81911 /* ConferenceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */; };
+		5BB5344D1B642A8F0030CC9D /* ConferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */; };
+		5BB534511B64321B0030CC9D /* ConferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */; };
 		5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663371AF3BEE400976284 /* AppDelegate.swift */; };
 		5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663391AF3BEE400976284 /* ViewController.swift */; };
 		5BC6633D1AF3BEE400976284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
@@ -23,7 +28,6 @@
 		D87319AA1B340DBD00DD4BA2 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
 		D87319AB1B340DBD00DD4BA2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDDA471B11BA75006C4C28 /* Secrets.swift */; };
 		D87319AC1B340DBD00DD4BA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663391AF3BEE400976284 /* ViewController.swift */; };
-		D87319AD1B340DBD00DD4BA2 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */; };
 		D87319AE1B340DBD00DD4BA2 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663591AF3C18800976284 /* MainTableViewController.swift */; };
 		D87319AF1B340DBD00DD4BA2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
 		D87319B01B340DBD00DD4BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663371AF3BEE400976284 /* AppDelegate.swift */; };
@@ -73,8 +77,9 @@
 		5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConferencesApp.xcdatamodel; sourceTree = "<group>"; };
 		5B69AAD51B074DF1001EDAF7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
 		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
-		5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceViewController.swift; sourceTree = "<group>"; };
 		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
+		5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceWebViewController.swift; sourceTree = "<group>"; };
+		5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewController.swift; sourceTree = "<group>"; };
 		5BC663321AF3BEE400976284 /* ConferencesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferencesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC663361AF3BEE400976284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC663371AF3BEE400976284 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,7 +166,8 @@
 				5BC663371AF3BEE400976284 /* AppDelegate.swift */,
 				5BC663391AF3BEE400976284 /* ViewController.swift */,
 				5BC6633B1AF3BEE400976284 /* Main.storyboard */,
-				5B937BB01AFD2E4F00508882 /* ConferenceViewController.swift */,
+				5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */,
+				5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */,
 				5BC663591AF3C18800976284 /* MainTableViewController.swift */,
 				5B9F0A5C1AF5023900EE70C8 /* Conference.swift */,
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
@@ -325,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA999701B809C9500F81911 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,10 +446,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */,
+				5BB5344D1B642A8F0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */,
 				5BC6633A1AF3BEE400976284 /* ViewController.swift in Sources */,
-				5B937BB11AFD2E4F00508882 /* ConferenceViewController.swift in Sources */,
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
+				5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */,
 				5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */,
 				5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */,
 				5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */,
@@ -454,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC6634E1AF3BEE400976284 /* ConferencesAppTests.swift in Sources */,
+				5BA999731B80A65600F81911 /* ConferenceWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,10 +470,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB534511B64321B0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				D87319AA1B340DBD00DD4BA2 /* ConferencesApp.xcdatamodeld in Sources */,
 				D87319AB1B340DBD00DD4BA2 /* Secrets.swift in Sources */,
 				D87319AC1B340DBD00DD4BA2 /* ViewController.swift in Sources */,
-				D87319AD1B340DBD00DD4BA2 /* ConferenceViewController.swift in Sources */,
+				5BA999741B80A65800F81911 /* ConferenceWebViewController.swift in Sources */,
 				D87319AE1B340DBD00DD4BA2 /* MainTableViewController.swift in Sources */,
 				D87319AF1B340DBD00DD4BA2 /* Reachability.swift in Sources */,
 				D87319B01B340DBD00DD4BA2 /* AppDelegate.swift in Sources */,
@@ -658,7 +668,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ConferencesApp/rubyraven.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = rubyraven;
 				PROVISIONING_PROFILE = "cffa701e-51e6-4138-900e-c1766b1dab65";
@@ -675,7 +685,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ConferencesApp/rubyraven.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = rubyraven;
 				PROVISIONING_PROFILE = "42792e4c-052d-4088-875b-c5631b27392e";

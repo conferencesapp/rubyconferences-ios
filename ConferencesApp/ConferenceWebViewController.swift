@@ -1,19 +1,17 @@
 //
-//  ConferenceViewController.swift
+//  ConferenceWebViewController.swift
 //  ConferencesApp
 //
-//  Created by Rashmi Yadav on 5/8/15.
+//  Created by Rashmi Yadav on 8/16/15.
 //
 //
 
 import UIKit
 
-class ConferenceViewController: UIViewController, UIWebViewDelegate{
+class ConferenceWebViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
      var conferenceLink: String = String()
     
     override func viewDidLoad() {
@@ -23,6 +21,8 @@ class ConferenceViewController: UIViewController, UIWebViewDelegate{
         let request: NSURLRequest = NSURLRequest(URL: url)
         webView.loadRequest(request)
         webView.delegate = self
+
+        // Do any additional setup after loading the view.
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
@@ -34,7 +34,7 @@ class ConferenceViewController: UIViewController, UIWebViewDelegate{
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

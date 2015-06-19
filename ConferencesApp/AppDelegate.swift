@@ -1,4 +1,5 @@
-    //
+
+//
 //  AppDelegate.swift
 //  ConferencesApp
 //
@@ -8,6 +9,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var pushSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: type, categories: nil)
         application.registerUserNotificationSettings(pushSettings)
         application.registerForRemoteNotifications()
+        updateMigration()
         
         return true
     }
@@ -54,7 +57,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mutableURLRequest.HTTPBody = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &JSONSerializationError)
         mutableURLRequest.setValue("Token token=\(apiSecret)", forHTTPHeaderField: "Authorization")
         
-        Alamofire.request(Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0)    }
+        Alamofire.request(Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0)
+    }
+    
+    func updateMigration() -> Void {
+        setSchemaVersion(3, Realm.defaultPath, { migration, oldSchemaVersion in
+            // We haven’t migrated anything yet, so oldSchemaVersion == 0
+            if oldSchemaVersion < 1 {
+                // Nothing to do!
+                // Realm will automatically detect new properties and removed properties
+                // And will update the schema on disk automatically
+            }
+        })        
+    }
     
     func application( application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError ) {
     }
