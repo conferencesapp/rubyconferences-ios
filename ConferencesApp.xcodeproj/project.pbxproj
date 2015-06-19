@@ -91,7 +91,7 @@
 		A69EB08D2B05CA427E8456F2 /* Pods-rubyconferences.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.release.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.release.xcconfig"; sourceTree = "<group>"; };
 		AE73C3B2AA2B0188D65D8B65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5804D1E3D17A7AA66EF62B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D87319BE1B340DBD00DD4BA2 /* ConferencesApp copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ConferencesApp copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D87319BE1B340DBD00DD4BA2 /* rubyraven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubyraven.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87319BF1B340DBD00DD4BA2 /* rubyraven.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = rubyraven.plist; path = "/Users/raysrashmi/binaryfunction/rubyconferences-ios/ConferencesApp/rubyraven.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +149,7 @@
 			children = (
 				5BC663321AF3BEE400976284 /* ConferencesApp.app */,
 				5BC663471AF3BEE400976284 /* ConferencesAppTest.xctest */,
-				D87319BE1B340DBD00DD4BA2 /* ConferencesApp copy.app */,
+				D87319BE1B340DBD00DD4BA2 /* rubyraven.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 			);
 			name = rubyraven;
 			productName = ConferencesApp;
-			productReference = D87319BE1B340DBD00DD4BA2 /* ConferencesApp copy.app */;
+			productReference = D87319BE1B340DBD00DD4BA2 /* rubyraven.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -660,7 +660,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ConferencesApp/rubyraven.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "ConferencesApp copy";
+				PRODUCT_NAME = rubyraven;
 				PROVISIONING_PROFILE = "cffa701e-51e6-4138-900e-c1766b1dab65";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -677,7 +677,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/ConferencesApp/rubyraven.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "ConferencesApp copy";
+				PRODUCT_NAME = rubyraven;
 				PROVISIONING_PROFILE = "42792e4c-052d-4088-875b-c5631b27392e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
