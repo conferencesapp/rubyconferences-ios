@@ -15,7 +15,6 @@ class MainTableViewController: UITableViewController {
     let CellIdentifier = "cell"
     
     var conferencesData = []
-    var conferenceArray = Realm().objects(Conference).sorted("startDate")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +28,14 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    func getConferencesFromApi(){
-        Alamofire.request(.GET, "\(apiUrl)/conferences")
+    func getConferencesFromApi(){        
+        let authorizationToken = "Token token=\(apiSecret)"
+        
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["Authorization": authorizationToken]
+
+        Alamofire.request(.GET, "\(apiUrl)/conferences?tags=ruby")
             .responseJSON { (request, response, data, error) in
                 var resultData: NSArray = data as! NSArray
-                
                 self.processResults(resultData)
         }
         
@@ -53,13 +55,21 @@ class MainTableViewController: UITableViewController {
             var conf = Conference()
             conf.id = data["id"] as! Int!
             conf.name = data["name"] as! String!
+            conf.detail = "This is description a very long description. We are pleases to announce Ruby Raven which is an iOS app that will keep you updated about latest happening in Ruby Conferences world."//data["description"] as! String!
             conf.location = data["location"] as! String
             
             conf.twitter_username = self.formatTwitterUsername(data["twitter_username"] as! String)
             
-            conf.image_url = data["image_url"] as! String!
+            let logos: NSDictionary = data["logos"] as! NSDictionary!
+            conf.logo_url  =  logos["thumb"] as! String!
+            conf.image_url =  logos["logo"] as! String!
+
             conf.place = data["location"] as! String!
             conf.when = data["when"] as! String!
+
+            conf.latitude = data["latitude"] as! Double!
+            conf.longitude = data["longitude"] as! Double!
+
             if let ws = data["website"] as? String{
                 conf.website = ws
             }
@@ -98,7 +108,7 @@ class MainTableViewController: UITableViewController {
     
     func getLocalIds() -> Set<Int>{
         var localIds =  Set<Int>()
-        for(lconf) in self.conferenceArray{
+        for(lconf) in Conference.findAll(){
             localIds.insert(lconf["id"] as! Int)
         }
         
@@ -141,12 +151,12 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        var count: Int = self.conferenceArray.count > 0 ? 1 : 0
+        var count: Int = Conference.findAll().count > 0 ? 1 : 0
         return count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var row_count: Int = self.conferenceArray.count > 0 ? self.conferenceArray.count : 0
+        var row_count: Int = Conference.findAll().count > 0 ? Conference.findAll().count : 0
         return row_count
     }
     
@@ -154,10 +164,10 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
     
-        var conferenceInfo = conferenceArray[indexPath.row]
+        var conferenceInfo = Conference.findAll()[indexPath.row]
         var imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
-        let imageUrl = NSURL(string: conferenceInfo.image_url)!
-        imageView.hnk_setImageFromURL(imageUrl)
+        let logo_url = NSURL(string: conferenceInfo.logo_url)!
+        imageView.hnk_setImageFromURL(logo_url)
         
         var title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
         title.text = conferenceInfo.name
@@ -194,22 +204,14 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100.0
-    }
-    
-    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> Void{
-        var websiteLink: String = conferencesData[indexPath.row]["website"] as! String
-        var websiteUrl: NSURL? = NSURL(string: websiteLink)
-        
-        UIApplication.sharedApplication().openURL(websiteUrl!)
-        
-    }*/
+    }   
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if segue.identifier == "viewConference" {
             let selectedRow = tableView.indexPathForSelectedRow()?.row
-            let viewController = segue.destinationViewController as! ConferenceViewController
+            let viewController = segue.destinationViewController as! ConferenceTableViewController
 
-            viewController.conferenceLink = (conferenceArray[selectedRow!]).website
+            viewController.conference = Conference.findAll()[selectedRow!]
         }
     }
 }
