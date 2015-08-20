@@ -83,14 +83,26 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
 
         var coordinate = mapView.region.center
         var location  = conference.location
+        var span = mapView.region.span
+        
+        let regionDistance:CLLocationDistance = 0.1
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinate, regionDistance, regionDistance)
+        
+
 
         let addressDictionary = [String(kABPersonAddressStreetKey): location]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        
 
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = location
 
-         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+       
+        var launchOptions = [
+            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        
         mapItem.openInMapsWithLaunchOptions(launchOptions)
     }
 
@@ -100,11 +112,12 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
 
         var latDelta: CLLocationDegrees = 0.05
         var longDelta: CLLocationDegrees = 0.05
+       
+        
 
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         var venueLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
+                var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
 
         return theRegion
     }
