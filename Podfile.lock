@@ -1,21 +1,38 @@
 PODS:
-  - Alamofire (1.2.2)
-  - HanekeSwift (0.9.1)
-  - Realm (0.92.3):
-    - Realm/Headers (= 0.92.3)
-  - Realm/Headers (0.92.3)
-  - RealmSwift (0.92.3):
-    - Realm (= 0.92.3)
+  - Alamofire (2.0.2)
+  - HanekeSwift (0.10.0)
+  - Realm (0.95.0):
+    - Realm/Headers (= 0.95.0)
+  - Realm/Headers (0.95.0)
+  - RealmSwift (0.95.0):
+    - Realm (= 0.95.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
+  - Alamofire (~> 2.0)
   - HanekeSwift
-  - RealmSwift (~> 0.92.3)
+  - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+  - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `swift-2.0`)
+
+EXTERNAL SOURCES:
+  Realm:
+    :branch: swift-2.0
+    :git: https://github.com/realm/realm-cocoa.git
+  RealmSwift:
+    :branch: swift-2.0
+    :git: https://github.com/realm/realm-cocoa.git
+
+CHECKOUT OPTIONS:
+  Realm:
+    :commit: 8e21055aa54412a69c4ff73b8a808b7893101b12
+    :git: https://github.com/realm/realm-cocoa.git
+  RealmSwift:
+    :commit: 8e21055aa54412a69c4ff73b8a808b7893101b12
+    :git: https://github.com/realm/realm-cocoa.git
 
 SPEC CHECKSUMS:
-  Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
-  HanekeSwift: 50d37bfbc4432edc649167e538c259feccb4a2bb
-  Realm: bf604805d5e897850da488260f93889f510924b3
-  RealmSwift: a5e48c7d5774eaa299b0b3a843add3b55e7f0061
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
+  Realm: 1c28007bd496af94dba8c76d50719164e706a521
+  RealmSwift: 9864524dd99c2cb7b4643c29513ef8447fe63724
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

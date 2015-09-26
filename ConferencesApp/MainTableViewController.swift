@@ -23,7 +23,7 @@ class MainTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "reloadData", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         
-        if Reachability.isConnectedToNetwork() {
+        if Reachability().connectedToNetwork() {
             getConferencesFromApi()
         }
     }
@@ -31,12 +31,22 @@ class MainTableViewController: UITableViewController {
     func getConferencesFromApi(){        
         let authorizationToken = "Token token=\(apiSecret)"
         
-        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["Authorization": authorizationToken]
-
-        Alamofire.request(.GET, "\(apiUrl)/conferences?tags=ruby")
-            .responseJSON { (request, response, data, error) in
-                var resultData: NSArray = data as! NSArray
-                self.processResults(resultData)
+        let headers = ["Authorization": authorizationToken]
+        
+        Alamofire.request(.GET, "\(apiUrl)/conferences?tags=ruby", headers: headers)
+            .responseJSON { (request, response, result) in
+                switch result {
+                case .Success(let JSON):
+                     let resultData: NSArray = JSON as! NSArray
+                     self.processResults(resultData)
+                    
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    
+                    if let data = data {
+                        print("Response data: \(NSString(data: data, encoding: NSUTF8StringEncoding)!)")
+                    }
+                }
         }
         
     }
@@ -44,42 +54,44 @@ class MainTableViewController: UITableViewController {
     func processResults(data: NSArray) -> Void{
         self.conferencesData = data
         
-        var localIds: Set<Int> =  getLocalIds()
-        var serverIds: Set<Int> = getServerIds()
-        var removableIds = localIds.subtract(serverIds)
+        let localIds: Set<Int> =  getLocalIds()
+        let serverIds: Set<Int> = getServerIds()
+        let removableIds = localIds.subtract(serverIds)
         
-        let realm = Realm()
+        let realm = try! Realm()
         
-        realm.write {
-          for(data) in self.conferencesData {
-            var conf = Conference()
-            conf.id = data["id"] as! Int!
-            conf.name = data["name"] as! String!
-            conf.detail = "This is description a very long description. We are pleases to announce Ruby Raven which is an iOS app that will keep you updated about latest happening in Ruby Conferences world."//data["description"] as! String!
-            conf.location = data["location"] as! String
+        do{
+          try! realm.write {
+            for(data) in self.conferencesData {
+              let conf = Conference()
+              conf.id = data["id"] as! Int!
+              conf.name = data["name"] as! String!
+              conf.detail = "This is description a very long description. We are pleases to announce Ruby Raven which is an iOS app that will keep you updated about latest happening in Ruby Conferences world."//data["description"] as! String!
+              conf.location = data["location"] as! String
             
-            conf.twitter_username = self.formatTwitterUsername(data["twitter_username"] as! String)
+              conf.twitter_username = self.formatTwitterUsername(data["twitter_username"] as! String)
             
-            let logos: NSDictionary = data["logos"] as! NSDictionary!
-            conf.logo_url  =  logos["thumb"] as! String!
-            conf.image_url =  logos["logo"] as! String!
+              let logos: NSDictionary = data["logos"] as! NSDictionary!
+              conf.logo_url  =  logos["thumb"] as! String!
+              conf.image_url =  logos["logo"] as! String!
 
-            conf.place = data["location"] as! String!
-            conf.when = data["when"] as! String!
+              conf.place = data["location"] as! String!
+              conf.when = data["when"] as! String!
 
-            conf.latitude = data["latitude"] as! Double!
-            conf.longitude = data["longitude"] as! Double!
+              conf.latitude = data["latitude"] as! Double!
+              conf.longitude = data["longitude"] as! Double!
+              conf.cfp_text = data["cfp_status"] as! String!
 
-            if let ws = data["website"] as? String{
+              if let ws = data["website"] as? String{
                 conf.website = ws
+              }
+              conf.startDate = self.formatStartdate(data["start_date"] as! String)
+              realm.add(conf, update: true)
             }
-            conf.startDate = self.formatStartdate(data["start_date"] as! String)
-            realm.add(conf, update: true)
-          }
-            
+            }
           //delete expired confs
            for(id) in removableIds{
-                var deleteConf = realm.objects(Conference).filter("id= \(id)")
+                let deleteConf = realm.objects(Conference).filter("id= \(id)")
                 realm.delete(deleteConf)
             }
         }
@@ -97,12 +109,12 @@ class MainTableViewController: UITableViewController {
     }
     
     func formatStartdate(stareDate: String) -> NSDate {
-        var dateString = stareDate// change to your date format
+        let dateString = stareDate// change to your date format
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        var date = dateFormatter.dateFromString(dateString)
+        let date = dateFormatter.dateFromString(dateString)
         return date!
     }
     
@@ -125,11 +137,11 @@ class MainTableViewController: UITableViewController {
     }
     
     func reloadData(){
-        if Reachability.isConnectedToNetwork() {
+        if Reachability().connectedToNetwork() {
             getConferencesFromApi()
         }
         else{
-            var alert = UIAlertView(title: "No Internet connection", message: "Please ensure you are connected to the Internet", delegate: nil, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "No Internet connection", message: "Please ensure you are connected to the Internet", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
         
@@ -137,8 +149,8 @@ class MainTableViewController: UITableViewController {
     }
     
     func deleteAll(){
-        let realm = Realm()
-        realm.write {
+        let realm = try! Realm()
+        try! realm.write {
             realm.deleteAll()
         }
     }
@@ -151,34 +163,34 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        var count: Int = Conference.findAll().count > 0 ? 1 : 0
+        let count: Int = Conference.findAll().count > 0 ? 1 : 0
         return count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var row_count: Int = Conference.findAll().count > 0 ? Conference.findAll().count : 0
+        let row_count: Int = Conference.findAll().count > 0 ? Conference.findAll().count : 0
         return row_count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath)
     
-        var conferenceInfo = Conference.findAll()[indexPath.row]
-        var imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
+        let conferenceInfo = Conference.findAll()[indexPath.row]
+        let imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
         let logo_url = NSURL(string: conferenceInfo.logo_url)!
         imageView.hnk_setImageFromURL(logo_url)
         
-        var title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
+        let title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
         title.text = conferenceInfo.name
         
-        var twitter: UILabel = cell.contentView.viewWithTag(102) as! UILabel
+        let twitter: UILabel = cell.contentView.viewWithTag(102) as! UILabel
         twitter.text = conferenceInfo.twitter_username
         
-        var location: UILabel = cell.contentView.viewWithTag(103) as! UILabel
+        let location: UILabel = cell.contentView.viewWithTag(103) as! UILabel
         location.text = conferenceInfo.place
         
-        var when: UILabel = cell.contentView.viewWithTag(104) as! UILabel
+        let when: UILabel = cell.contentView.viewWithTag(104) as! UILabel
         when.text = conferenceInfo.when
         
         return cell
@@ -208,7 +220,7 @@ class MainTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if segue.identifier == "viewConference" {
-            let selectedRow = tableView.indexPathForSelectedRow()?.row
+            let selectedRow = tableView.indexPathForSelectedRow?.row
             let viewController = segue.destinationViewController as! ConferenceTableViewController
 
             viewController.conference = Conference.findAll()[selectedRow!]

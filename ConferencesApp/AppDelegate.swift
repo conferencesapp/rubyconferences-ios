@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        var type = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
-        var pushSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: type, categories: nil)
+        let type: UIUserNotificationType = [UIUserNotificationType.Badge, UIUserNotificationType.Alert, UIUserNotificationType.Sound]
+        let pushSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: type, categories: nil)
         application.registerUserNotificationSettings(pushSettings)
         application.registerForRemoteNotifications()
         updateMigration()
@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application( application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
-        var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
+        let characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
         
-        var deviceTokenString: String = ( deviceToken.description as NSString )
+        let deviceTokenString: String = ( deviceToken.description as NSString )
             .stringByTrimmingCharactersInSet( characterSet )
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
         
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func sendDevicetokentoServer(deviceTokenString: String) {
-        var parameters = [
+        let parameters = [
             "device":
                 [
                     "token": deviceTokenString
@@ -54,14 +54,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var path = "/devices"
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = "POST"
-        mutableURLRequest.HTTPBody = NSJSONSerialization.dataWithJSONObject(parameters, options: nil, error: &JSONSerializationError)
+        do {
+            mutableURLRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+        } catch var error as NSError {
+            JSONSerializationError = error
+            mutableURLRequest.HTTPBody = nil
+        }
         mutableURLRequest.setValue("Token token=\(apiSecret)", forHTTPHeaderField: "Authorization")
         
         Alamofire.request(Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0)
     }
     
     func updateMigration() -> Void {
-        setSchemaVersion(3, Realm.defaultPath, { migration, oldSchemaVersion in
+        setSchemaVersion(4, realmPath: Realm.defaultPath, migrationBlock: { migration, oldSchemaVersion in
             // We haven’t migrated anything yet, so oldSchemaVersion == 0
             if oldSchemaVersion < 1 {
                 // Nothing to do!
@@ -102,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.jqsoftware.MyLog" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
         }()
     
    /* lazy var managedObjectModel: NSManagedObjectModel = {

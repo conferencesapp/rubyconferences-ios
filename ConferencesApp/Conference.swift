@@ -19,8 +19,10 @@ class Conference: Object {
     dynamic var logo_url: String = ""
     dynamic var twitter_username: String = ""
     dynamic var website: String = ""
-    dynamic var when: String? = ""
-    dynamic var startDate: NSDate? = NSDate()
+    dynamic var when: String = ""
+    dynamic var cfp_end_at: NSDate = NSDate()
+    dynamic var cfp_text: String = ""
+    dynamic var startDate: NSDate = NSDate()
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     
@@ -30,7 +32,7 @@ class Conference: Object {
     
     class func findAll() -> [Conference] {
         var conferences: [Conference] = []
-        for conf in Realm().objects(Conference).sorted("startDate") {
+        for conf in try! Realm().objects(Conference).sorted("startDate") {
             conferences.append(conf)
         }
         

@@ -44,7 +44,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         logoImage.hnk_setImageFromURL(url!)
         nameLabel.text = conference.name
         descLabel.text = conference.detail
-        proposalLabel.text = "Call for proposals is open"
+        proposalLabel.text = conference.cfp_text
         dateLabel.text = conference.when
         locationLabel.text = conference.location
 
@@ -54,24 +54,24 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     }
 
     func showMap(conference: Conference) -> Void {
-        var theRegion = setMapCoordinates()
+        let theRegion = setMapCoordinates()
         
         self.mapView.setRegion(theRegion, animated: true)
         
-        var mapAnnotation = MKPointAnnotation()
+        let mapAnnotation = MKPointAnnotation()
         mapAnnotation.coordinate = theRegion.center
         mapAnnotation.title = conference.location
 
         mapView.addAnnotation(mapAnnotation)
         mapView.selectAnnotation(mapAnnotation, animated: true)
         
-        var tapGesture = setGesture()
+        let tapGesture = setGesture()
         mapView.addGestureRecognizer(tapGesture)
     }
 
     func setGesture() -> UITapGestureRecognizer
     {
-        var tapGesture = UITapGestureRecognizer()
+        let tapGesture = UITapGestureRecognizer()
         tapGesture.numberOfTapsRequired = 1
         tapGesture.addTarget(self, action: "handleTap:")
 
@@ -79,11 +79,11 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     }
 
     func handleTap(sender: UITapGestureRecognizer) -> Void{
-        var mapView = sender.view as! MKMapView!
+        let mapView = sender.view as! MKMapView!
 
-        var coordinate = mapView.region.center
-        var location  = conference.location
-        var span = mapView.region.span
+        let coordinate = mapView.region.center
+        let location  = conference.location
+        //var span = mapView.region.span
         
         let regionDistance:CLLocationDistance = 0.1
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinate, regionDistance, regionDistance)
@@ -98,7 +98,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         mapItem.name = location
 
        
-        var launchOptions = [
+        let launchOptions = [
             MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
             MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
         ]
@@ -107,23 +107,23 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     }
 
     func setMapCoordinates() -> MKCoordinateRegion {
-        var latitude: CLLocationDegrees = conference.latitude
-        var longitude: CLLocationDegrees = conference.longitude
+        let latitude: CLLocationDegrees = conference.latitude
+        let longitude: CLLocationDegrees = conference.longitude
 
-        var latDelta: CLLocationDegrees = 0.05
-        var longDelta: CLLocationDegrees = 0.05
+        let latDelta: CLLocationDegrees = 0.05
+        let longDelta: CLLocationDegrees = 0.05
        
         
 
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        var venueLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-                var theRegion:MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let venueLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+                let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
 
         return theRegion
     }
 
     func openTwitterApp(){
-        var twitterName = conference.twitter_username
+        let twitterName = conference.twitter_username
         var URL = ""
         var URLInApp = ""
         URL = "https://twitter.com/" + conference.twitter_username
@@ -142,7 +142,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
         if segue.identifier == "webView" {
-            let selectedRow = tableView.indexPathForSelectedRow()?.row
+           // let selectedRow = tableView.indexPathForSelectedRow?.row
             let viewController = segue.destinationViewController as! ConferenceWebViewController
 
             viewController.conferenceLink = conference.website
