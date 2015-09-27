@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let pushSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: type, categories: nil)
         application.registerUserNotificationSettings(pushSettings)
         application.registerForRemoteNotifications()
+      
         updateMigration()
         
         return true
@@ -51,12 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var JSONSerializationError: NSError? = nil
         let URL = NSURL(string: apiUrl)!
-        var path = "/devices"
+        let path = "/devices"
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = "POST"
         do {
             mutableURLRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(parameters, options: [])
-        } catch var error as NSError {
+        } catch let error as NSError {
             JSONSerializationError = error
             mutableURLRequest.HTTPBody = nil
         }
@@ -66,14 +67,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func updateMigration() -> Void {
-        setSchemaVersion(4, realmPath: Realm.defaultPath, migrationBlock: { migration, oldSchemaVersion in
-            // We haven’t migrated anything yet, so oldSchemaVersion == 0
-            if oldSchemaVersion < 1 {
-                // Nothing to do!
-                // Realm will automatically detect new properties and removed properties
-                // And will update the schema on disk automatically
-            }
-        })        
+      let config = Realm.Configuration(
+        schemaVersion: 4,
+        
+        // Set the block which will be called automatically when opening a Realm with
+        // a schema version lower than the one set above
+        migrationBlock: { migration, oldSchemaVersion in
+          if (oldSchemaVersion < 1) {
+          }
+      })
+      
+      // Tell Realm to use this new configuration object for the default Realm
+      Realm.Configuration.defaultConfiguration = config
     }
     
     func application( application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError ) {
