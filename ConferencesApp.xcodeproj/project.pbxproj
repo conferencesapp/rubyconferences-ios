@@ -266,6 +266,7 @@
 				D87319B21B340DBD00DD4BA2 /* Frameworks */,
 				D87319B41B340DBD00DD4BA2 /* Resources */,
 				D87319B81B340DBD00DD4BA2 /* Embed Frameworks */,
+				5B24E6DA1BB7ED4B00F97FBE /* Version Number */,
 				D87319B91B340DBD00DD4BA2 /* Embed Pods Frameworks */,
 				D87319BA1B340DBD00DD4BA2 /* Copy Pods Resources */,
 			);
@@ -350,6 +351,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5B24E6DA1BB7ED4B00F97FBE /* Version Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Version Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbranch_name=`$git symbolic-ref HEAD | sed -e 's,.*/\\\\(.*\\\\),\\\\1,'`\ngit_count=`$git rev-list $branch_name |wc -l | sed 's/^ *//;s/ *$//'`\nsimple_branch_name=`$git rev-parse --abbrev-ref HEAD`\n\nbuild_number=\"$git_count\"\nif [ $CONFIGURATION != \"Release\" ]; then\nbuild_number+=\"-$simple_branch_name\"\nfi\n\nplist=\"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\ndsym_plist=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build_number\" \"$plist\"\nif [ -f \"$DSYM_INFO_PLIST\" ] ; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build_number\" \"$dsym_plist\"\nfi";
+		};
 		63FBECD5BB5315787F4C2197 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
