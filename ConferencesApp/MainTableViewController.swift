@@ -67,7 +67,10 @@ class MainTableViewController: UITableViewController {
               let conf = Conference()
               conf.id = data["id"] as! Int!
               conf.name = data["name"] as! String!
-              conf.detail = "This is description a very long description. We are pleases to announce Ruby Raven which is an iOS app that will keep you updated about latest happening in Ruby Conferences world."//data["description"] as! String!
+              if let detail = data["description"] as? String {
+                conf.detail = detail
+              }
+
               conf.location = data["location"] as! String
             
               conf.twitter_username = self.formatTwitterUsername(data["twitter_username"] as! String)
