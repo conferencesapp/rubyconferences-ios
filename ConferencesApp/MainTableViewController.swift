@@ -189,10 +189,7 @@ class MainTableViewController: UITableViewController {
         
         let title: UILabel = cell.contentView.viewWithTag(101) as! UILabel
         title.text = conferenceInfo.name
-        
-        let twitter: UILabel = cell.contentView.viewWithTag(102) as! UILabel
-        twitter.text = conferenceInfo.twitter_username
-        
+                
         let location: UILabel = cell.contentView.viewWithTag(103) as! UILabel
         location.text = conferenceInfo.place
         
