@@ -347,7 +347,7 @@
                                                 <constraint firstItem="yBc-iP-eqV" firstAttribute="top" secondItem="Kq7-ol-x36" secondAttribute="topMargin" constant="11" id="yUk-gF-OqQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.32472334446366791" green="0.10242281812134528" blue="0.7883128157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
