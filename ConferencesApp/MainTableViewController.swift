@@ -15,6 +15,7 @@ class MainTableViewController: UITableViewController {
     let CellIdentifier = "cell"
     
     var conferencesData = []
+    var conferences:[Conference] =  []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    func getConferencesFromApi(){        
+    func getConferencesFromApi(){
         let authorizationToken = "Token token=\(apiSecret)"
         
         let headers = ["Authorization": authorizationToken]
@@ -53,7 +54,7 @@ class MainTableViewController: UITableViewController {
 
     func processResults(data: NSArray) -> Void{
         self.conferencesData = data
-        
+      
         let localIds: Set<Int> =  getLocalIds()
         let serverIds: Set<Int> = getServerIds()
         let removableIds = localIds.subtract(serverIds)
@@ -61,7 +62,7 @@ class MainTableViewController: UITableViewController {
         let realm = try! Realm()
         
         do{
-          try! realm.write {
+          try realm.write {
             for(data) in self.conferencesData {
               let conf = Conference()
               conf.id = data["id"] as! Int!
@@ -86,15 +87,17 @@ class MainTableViewController: UITableViewController {
                 conf.website = ws
               }
               conf.startDate = self.formatStartdate(data["start_date"] as! String)
-              realm.add(conf, update: true)
+              realm.create(Conference.self, value: conf, update: true)
             }
-            }
+          }
           //delete expired confs
            for(id) in removableIds{
                 let deleteConf = realm.objects(Conference).filter("id= \(id)")
                 realm.delete(deleteConf)
             }
-        }
+        }catch{
+          print("Error")
+      }
         
         self.tableView.reloadData()
     }
@@ -163,20 +166,20 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let count: Int = Conference.findAll().count > 0 ? 1 : 0
-        return count
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let row_count: Int = Conference.findAll().count > 0 ? Conference.findAll().count : 0
+        conferences = Conference.findAll()
+        let row_count: Int = conferences.count > 0 ? conferences.count : 0
         return row_count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath)
-    
-        let conferenceInfo = Conference.findAll()[indexPath.row]
+      
+        let conferenceInfo = conferences[indexPath.row]
         let imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
         let logo_url = NSURL(string: conferenceInfo.logo_url)!
         imageView.hnk_setImageFromURL(logo_url)
