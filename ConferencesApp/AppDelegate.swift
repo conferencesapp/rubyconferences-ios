@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var JSONSerializationError: NSError? = nil
         let URL = NSURL(string: apiUrl)!
-        let path = "/devices"
+        let path = "/v1/devices"
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = "POST"
         do {

@@ -34,7 +34,7 @@ class MainTableViewController: UITableViewController {
         
         let headers = ["Authorization": authorizationToken]
         
-        Alamofire.request(.GET, "\(apiUrl)/conferences?tags=ruby", headers: headers)
+        Alamofire.request(.GET, "\(apiUrl)/v2/conferences?tags=ruby", headers: headers)
             .responseJSON { (request, response, result) in
                 switch result {
                 case .Success(let JSON):
