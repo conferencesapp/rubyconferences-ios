@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41A08FEA1BC55FF300958255 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A08FE91BC55FF300958255 /* ConferenceDataStore.swift */; settings = {ASSET_TAGS = (); }; };
 		5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
 		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		145E60EEBD0DFE8CD1CFBA57 /* Pods-rubyconferences.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.debug.xcconfig"; sourceTree = "<group>"; };
 		244ADA0B84DA02347F850397 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		41A08FE91BC55FF300958255 /* ConferenceDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDataStore.swift; sourceTree = "<group>"; };
 		5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConferencesApp.xcdatamodel; sourceTree = "<group>"; };
 		5B69AAD51B074DF1001EDAF7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
 		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */,
 				5BC663591AF3C18800976284 /* MainTableViewController.swift */,
 				5B9F0A5C1AF5023900EE70C8 /* Conference.swift */,
+				41A08FE91BC55FF300958255 /* ConferenceDataStore.swift */,
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
 				5BC663401AF3BEE400976284 /* LaunchScreen.xib */,
 				5BC663351AF3BEE400976284 /* Supporting Files */,
@@ -461,6 +464,7 @@
 				5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */,
 				5BB5344D1B642A8F0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */,
+				41A08FEA1BC55FF300958255 /* ConferenceDataStore.swift in Sources */,
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
 				5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */,
 				5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */,
