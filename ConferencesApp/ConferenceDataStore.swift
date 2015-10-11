@@ -23,6 +23,7 @@ class ConferenceDataStore {
                 case .Success(let JSON):
                     let resultData: NSArray = JSON as! NSArray
                     self.processResults(resultData)
+                    NSNotificationCenter.defaultCenter().postNotificationName("ConferencesUpdatedNotification", object: nil)
                     
                 case .Failure(let data, let error):
                     print("Request failed with error: \(error)")

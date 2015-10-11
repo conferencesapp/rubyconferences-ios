@@ -22,28 +22,29 @@ class MainTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: "reloadData", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "ConferencesUpdatedNotificationHandler:",
+            name:"ConferencesUpdatedNotification", object: nil)
+        
         if Reachability().connectedToNetwork() {
             conferenceDataStore.getConferencesFromApi()
-            conferences = conferenceDataStore.findAll()
         }
-        self.tableView.reloadData()
     }
     
-    func reloadData(){
+    func reloadData() {
         if Reachability().connectedToNetwork() {
             conferenceDataStore.getConferencesFromApi()
-            conferences = conferenceDataStore.findAll()
-        }
-        else{
+        } else {
             let alert = UIAlertView(title: "No Internet connection", message: "Please ensure you are connected to the Internet", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
+    }
+    
+    dynamic func ConferencesUpdatedNotificationHandler(notification: NSNotification) {
+        conferences = conferenceDataStore.findAll()
         
         self.refreshControl?.endRefreshing()
         self.tableView.reloadData()
     }
-    
-   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,7 +58,6 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let conferences = conferenceDataStore.findAll()
         let row_count: Int = conferences.count > 0 ? conferences.count : 0
         return row_count
     }
@@ -110,7 +110,11 @@ class MainTableViewController: UITableViewController {
             let selectedRow = tableView.indexPathForSelectedRow?.row
             let viewController = segue.destinationViewController as! ConferenceTableViewController
 
-            viewController.conference = conferenceDataStore.findAll()[selectedRow!]
+            viewController.conference = conferences[selectedRow!]
         }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
