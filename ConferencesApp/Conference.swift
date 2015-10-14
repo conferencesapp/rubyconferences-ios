@@ -30,12 +30,5 @@ class Conference: Object {
         return "id"
     }
     
-    class func findAll() -> [Conference] {
-        var conferences: [Conference] = []
-        for conf in try! Realm().objects(Conference).sorted("startDate") {
-            conferences.append(conf)
-        }
-        
-        return conferences
-    }
+    
 }
