@@ -136,9 +136,11 @@ class ConferenceDataStore {
     
     func filterConferences(searchText: String) -> [Conference]{
         let conferences = self.findAll().filter({ (conference) -> Bool in
-            let tmp: NSString = conference.name
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return range.location != NSNotFound
+            let tmpName: NSString = conference.name
+            let tmpLocation: NSString = conference.location
+            let rangeName = tmpName.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let rangeLocation = tmpLocation.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return (rangeName.location != NSNotFound) || (rangeLocation.location != NSNotFound)
         })
         
         return conferences
