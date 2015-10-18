@@ -134,6 +134,16 @@ class ConferenceDataStore {
         return conferences
     }
     
+    func filterConferences(searchText: String) -> [Conference]{
+        let conferences = self.findAll().filter({ (conference) -> Bool in
+            let tmp: NSString = conference.name
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        
+        return conferences
+    }
+    
     func deleteAll(){
         let realm = try! Realm()
         try! realm.write {

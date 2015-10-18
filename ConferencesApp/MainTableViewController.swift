@@ -9,11 +9,15 @@
 import UIKit
 import Haneke
 
-class MainTableViewController: UITableViewController {
-    let CellIdentifier = "cell"
+class MainTableViewController: UITableViewController, UISearchBarDelegate{
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    let CellIdentifier = "cell"
     var conferences:[Conference] =  []
+    var filterConferences: [Conference] = []
     var conferenceDataStore = ConferenceDataStore()
+    var searchActive : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,7 @@ class MainTableViewController: UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: "reloadData", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
+        searchBar.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "ConferencesUpdatedNotificationHandler:",
             name:"ConferencesUpdatedNotification", object: nil)
@@ -46,6 +51,42 @@ class MainTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filterConferences = self.conferences.filter({( conference: Conference) -> Bool in
+//            let categoryMatch = (scope == "All") || (conference.category == scope)
+            let stringMatch = conference.name.rangeOfString(searchText)
+            return (stringMatch != nil)
+        })
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filterConferences = conferenceDataStore.filterConferences(searchText)
+        
+        if(filterConferences.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,15 +99,27 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let row_count: Int = conferences.count > 0 ? conferences.count : 0
+        var row_count: Int = 0
+        
+        if(searchActive){
+             row_count = filterConferences.count > 0 ? filterConferences.count : 0
+        }
+        else{
+            row_count = conferences.count > 0 ? conferences.count : 0
+        }
+        
         return row_count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath)
-      
-        let conferenceInfo = conferences[indexPath.row]
+        var conferenceInfo = conferences[indexPath.row]
+        
+        if(searchActive){
+            conferenceInfo = filterConferences[indexPath.row]
+        }
+        
         let imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
         let logo_url = NSURL(string: conferenceInfo.logo_url)!
         imageView.hnk_setImageFromURL(logo_url)
