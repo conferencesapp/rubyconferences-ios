@@ -51,15 +51,6 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate{
         self.tableView.reloadData()
     }
     
-    func filterContentForSearchText(searchText: String) {
-        // Filter the array using the filter method
-        self.filterConferences = self.conferences.filter({( conference: Conference) -> Bool in
-//            let categoryMatch = (scope == "All") || (conference.category == scope)
-            let stringMatch = conference.name.rangeOfString(searchText)
-            return (stringMatch != nil)
-        })
-    }
-    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchActive = true;
     }
@@ -87,6 +78,14 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate{
         self.tableView.reloadData()
     }
     
+    func conferencesData() -> [Conference]{
+        if(searchActive){
+            return filterConferences
+        }else{
+            return conferences
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,14 +98,8 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var row_count: Int = 0
         
-        if(searchActive){
-             row_count = filterConferences.count > 0 ? filterConferences.count : 0
-        }
-        else{
-            row_count = conferences.count > 0 ? conferences.count : 0
-        }
+        let row_count: Int = conferencesData().count
         
         return row_count
     }
@@ -114,11 +107,7 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier, forIndexPath: indexPath)
-        var conferenceInfo = conferences[indexPath.row]
-        
-        if(searchActive){
-            conferenceInfo = filterConferences[indexPath.row]
-        }
+        let conferenceInfo = conferencesData()[indexPath.row]
         
         let imageView: UIImageView = cell.contentView.viewWithTag(100) as! UIImageView
         let logo_url = NSURL(string: conferenceInfo.logo_url)!
