@@ -17,7 +17,7 @@ class ConferenceDataStore {
         let authorizationToken = "Token token=\(apiSecret)"
         let headers = ["Authorization": authorizationToken]
         
-        Alamofire.request(.GET, "\(apiUrl)/v2/conferences?tags=ruby", headers: headers)
+        Alamofire.request(.GET, "\(apiUrl)/v3/conferences?tags=ruby", headers: headers)
             .responseJSON { (_, _, result) in
                 switch result {
                 case .Success(let JSON):
