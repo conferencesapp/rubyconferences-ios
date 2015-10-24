@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4155EEC31BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; settings = {ASSET_TAGS = (); }; };
-		4155EEC41BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; settings = {ASSET_TAGS = (); }; };
+		4155EEC31BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; };
+		4155EEC41BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; };
 		5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
 		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
