@@ -25,7 +25,7 @@
 		5BC6634E1AF3BEE400976284 /* ConferencesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6634D1AF3BEE400976284 /* ConferencesAppTests.swift */; };
 		5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663591AF3C18800976284 /* MainTableViewController.swift */; };
 		5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDDA471B11BA75006C4C28 /* Secrets.swift */; };
-		783C1AF336EC1438BC9FAC13 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73C3B2AA2B0188D65D8B65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		783C1AF336EC1438BC9FAC13 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE73C3B2AA2B0188D65D8B65 /* Pods.framework */; };
 		D87319AA1B340DBD00DD4BA2 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
 		D87319AB1B340DBD00DD4BA2 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDDDA471B11BA75006C4C28 /* Secrets.swift */; };
 		D87319AE1B340DBD00DD4BA2 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC663591AF3C18800976284 /* MainTableViewController.swift */; };
