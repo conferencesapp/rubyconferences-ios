@@ -152,7 +152,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
                      dispatch_async(dispatch_get_main_queue()) {
                         self.addCalendarEventtoStore(eventStore)
                     }
-                    
+
                 } else { // Event Already present in calendar.
                     dispatch_async(dispatch_get_main_queue()) {
                         self.deleteEventFromStore(eventStore, eventID:self.calendarEventID)
@@ -181,47 +181,47 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
             do {
                 try eventStore.saveEvent(event, span: EKSpan.ThisEvent, commit: true)
                 self.calendarEventID = event.eventIdentifier
-                
+
                 self.conferenceDataStore?.updateCalendarEventIdentifier(self.conference,
                     eventId:event.eventIdentifier)
             } catch {
                 print("Failed to create an event in Calendar.")
             }
         }
-        
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler:nil )
-        
+
         alertController.addAction(createAction)
         alertController.addAction(cancelAction)
-        
+
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
+
     func deleteEventFromStore( eventStore: EKEventStore, eventID: String) {
         if let event = eventStore.eventWithIdentifier(eventID) {
             let alertController = UIAlertController(title: "Delete Event.",
                 message: "Delete Event from Calender ?", preferredStyle: .Alert)
-            
+
             let deleteAction = UIAlertAction(title: "Delete", style: .Default) { (action) -> Void in
                 do {
                     try eventStore.removeEvent(event, span: EKSpan.ThisEvent, commit: true)
-                    
+
                 } catch _ {
                     print("Failed to delete event")
                 }
-                
+
                 self.calendarEventID = ""
                 self.conferenceDataStore?.updateCalendarEventIdentifier(
                     self.conference, eventId:"")
             }
-            
+
             let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler:nil )
-            
+
             alertController.addAction(deleteAction)
             alertController.addAction(cancelAction)
-            
+
             self.presentViewController(alertController, animated: true, completion: nil)
-            
+
         } else {
             // Could not find event, so delete Event Data.
             // This can happen if user has deleted event manually from calendar.
@@ -229,7 +229,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
             self.calendarEventID = ""
         }
     }
-    
+
     func openTwitterApp(){
         let twitterName = conference.twitter_username
         var URL = ""
