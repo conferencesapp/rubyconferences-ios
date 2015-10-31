@@ -14,11 +14,11 @@ import EventKit
 
 class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     var conference = Conference()
-    var conferenceDataStore : ConferenceDataStore?
+    var conferenceDataStore: ConferenceDataStore?
     var conferenceName: String!
     var startDate: NSDate!
     var endDate: NSDate!
-    var calendarEventID : String!
+    var calendarEventID: String!
     
     @IBOutlet weak var logoImage: UIImageView!
     
@@ -128,9 +128,9 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
        
         
 
-        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        let venueLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
+        let theSpan: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let venueLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let theRegion: MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
         
         return theRegion
     }
@@ -163,8 +163,8 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         
     }
     
-    func addCalendarEventtoStore(eventStore:EKEventStore) {
-        let event:EKEvent = EKEvent(eventStore: eventStore)
+    func addCalendarEventtoStore(eventStore: EKEventStore) {
+        let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = self.conferenceName
         event.startDate = self.startDate
         event.endDate = self.endDate
@@ -197,7 +197,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func deleteEventFromStore( eventStore:EKEventStore, eventID: String) {
+    func deleteEventFromStore( eventStore: EKEventStore, eventID: String) {
         if let event = eventStore.eventWithIdentifier(eventID) {
             let alertController = UIAlertController(title: "Delete Event.",
                 message: "Delete Event from Calender ?", preferredStyle: .Alert)
@@ -225,7 +225,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         } else {
             // Could not find event, so delete Event Data.
             // This can happen if user has deleted event manually from calendar.
-            
             self.conferenceDataStore?.deleteCalendarEventData(self.conference)
             self.calendarEventID = ""
         }
