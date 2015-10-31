@@ -23,12 +23,12 @@ class Conference: Object {
     dynamic var cfp_end_at: NSDate = NSDate()
     dynamic var cfp_text: String = ""
     dynamic var startDate: NSDate = NSDate()
+    dynamic var endDate: NSDate = NSDate()
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     
     override static func primaryKey() -> String? {
         return "id"
     }
-    
     
 }
