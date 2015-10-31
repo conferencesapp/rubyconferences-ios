@@ -160,6 +160,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
                 }
             }
         })
+        
     }
     
     func addCalendarEventtoStore(eventStore:EKEventStore) {
@@ -197,7 +198,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     }
     
     func deleteEventFromStore( eventStore:EKEventStore, eventID: String) {
-        
         if let event = eventStore.eventWithIdentifier(eventID) {
             let alertController = UIAlertController(title: "Delete Event.",
                 message: "Delete Event from Calender ?", preferredStyle: .Alert)
