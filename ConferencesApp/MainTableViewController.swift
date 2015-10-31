@@ -153,6 +153,8 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate{
             let viewController = segue.destinationViewController as! ConferenceTableViewController
 
             viewController.conference = conferences[selectedRow!]
+            viewController.conferenceDataStore = self.conferenceDataStore
+            
         }
     }
     

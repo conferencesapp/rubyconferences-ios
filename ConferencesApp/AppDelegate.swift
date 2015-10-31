@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func updateMigration() -> Void {
       let config = Realm.Configuration(
-        schemaVersion: 4,
+        schemaVersion: 5,
         
         // Set the block which will be called automatically when opening a Realm with
         // a schema version lower than the one set above
