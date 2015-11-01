@@ -109,7 +109,7 @@ class ConferenceDataStore {
         }
     }
     
-    func deleteCalendarEventData(conf:Conference) -> Void {
+    func deleteCalendarEventData(conf: Conference) -> Void {
         let realm = try! Realm()
 
         do {
@@ -123,7 +123,7 @@ class ConferenceDataStore {
         }
     }
     
-    func calendarEventIDFor(conf:Conference) -> String {
+    func calendarEventIDFor(conf: Conference) -> String {
         do {
             if let eventData = try Realm().objectForPrimaryKey(CalendarEventData.self, key: conf.id) {
                 return eventData.eventID

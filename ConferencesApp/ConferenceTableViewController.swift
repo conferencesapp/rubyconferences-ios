@@ -194,7 +194,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    func deleteEventFromStore( eventStore: EKEventStore, eventID: String) {
+    func deleteEventFromStore(eventStore: EKEventStore, eventID: String) {
         if let event = eventStore.eventWithIdentifier(eventID) {
             let alertController = UIAlertController(title: "Delete Event.",
                 message: "Delete Event from Calender ?", preferredStyle: .Alert)

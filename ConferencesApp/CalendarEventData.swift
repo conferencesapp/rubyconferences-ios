@@ -10,7 +10,7 @@ import RealmSwift
 
 class CalendarEventData: Object {
     dynamic var id: Int = 0
-    dynamic var eventID : String = ""
+    dynamic var eventID: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
