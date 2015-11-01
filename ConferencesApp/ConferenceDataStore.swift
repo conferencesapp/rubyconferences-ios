@@ -90,7 +90,7 @@ class ConferenceDataStore {
         }
     }
     
-    func updateCalendarEventIdentifier( conf:Conference, eventId:String) {
+    func updateCalendarEventIdentifier(conf: Conference, eventId: String) {
 
         let realm = try! Realm()
 
@@ -103,7 +103,6 @@ class ConferenceDataStore {
                 realm.create(CalendarEventData.self, value: calEvent, update: true)
            
                 print("Updated calenderEventID")
-                debugPrint(calEvent)
             }
         } catch {
                 print("Could not save calendar event ID in database.")

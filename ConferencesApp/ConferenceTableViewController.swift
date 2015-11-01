@@ -57,7 +57,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         startDate =  conference.startDate
         endDate = conference.endDate
         calendarEventID = conferenceDataStore?.calendarEventIDFor(conference)
-        debugPrint(calendarEventID)
         
         setTapGestureOnDateImage()
         
@@ -160,7 +159,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
                 }
             }
         })
-        
     }
     
     func addCalendarEventtoStore(eventStore: EKEventStore) {
@@ -170,7 +168,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         event.endDate = self.endDate
         event.location = self.locationLabel.text
         event.allDay = true
-        // event.notes = "Note for conference"
         
         event.calendar = eventStore.defaultCalendarForNewEvents
         
