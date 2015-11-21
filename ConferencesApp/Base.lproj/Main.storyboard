@@ -183,35 +183,8 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="YrC-Q9-fXO">
-                                        <rect key="frame" x="0.0" y="363" width="600" height="108"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YrC-Q9-fXO" id="Zcu-Kw-kjA">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="108"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMk-LH-eIG">
-                                                    <rect key="frame" x="12" y="15" width="576" height="67"/>
-                                                    <animations/>
-                                                    <string key="text">In iOS 6 and later, if you assign a value to this view’s restorationIdentifier property, it attempts to preserve the frame of the displayed image. Specifically, the class preserves the values of the bounds, center, and transform properties of the view and the anchorPoint property of the underlying layer. During restoration, the image view restores these values so that the image appears exactly as before.
-</string>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="FMk-LH-eIG" secondAttribute="bottom" constant="18" id="CLC-1L-kv7"/>
-                                                <constraint firstItem="FMk-LH-eIG" firstAttribute="top" secondItem="Zcu-Kw-kjA" secondAttribute="topMargin" constant="7" id="CVz-wT-dOs"/>
-                                                <constraint firstItem="FMk-LH-eIG" firstAttribute="leading" secondItem="Zcu-Kw-kjA" secondAttribute="leadingMargin" constant="4" id="EHx-Xy-2iR"/>
-                                                <constraint firstItem="FMk-LH-eIG" firstAttribute="centerX" secondItem="Zcu-Kw-kjA" secondAttribute="centerX" id="rkv-2E-2DS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="EUY-Gv-pdo">
-                                        <rect key="frame" x="0.0" y="471" width="600" height="88"/>
+                                        <rect key="frame" x="0.0" y="363" width="600" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EUY-Gv-pdo" id="wdU-O1-TWt">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
@@ -246,7 +219,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="TEk-ns-fFQ">
-                                        <rect key="frame" x="0.0" y="559" width="600" height="77"/>
+                                        <rect key="frame" x="0.0" y="451" width="600" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TEk-ns-fFQ" id="zmS-gd-cQU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="77"/>
@@ -284,7 +257,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="210" id="qpZ-Wk-cmW">
-                                        <rect key="frame" x="0.0" y="636" width="600" height="210"/>
+                                        <rect key="frame" x="0.0" y="528" width="600" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qpZ-Wk-cmW" id="9b4-Me-j3S">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="210"/>
@@ -306,7 +279,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="EEu-BS-YWt">
-                                        <rect key="frame" x="0.0" y="846" width="600" height="93"/>
+                                        <rect key="frame" x="0.0" y="738" width="600" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EEu-BS-YWt" id="vK6-k9-SFn">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
@@ -344,7 +317,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="Mpl-Xa-BFm">
-                                        <rect key="frame" x="0.0" y="939" width="600" height="84"/>
+                                        <rect key="frame" x="0.0" y="831" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mpl-Xa-BFm" id="APh-Tg-NVB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="84"/>
@@ -390,7 +363,7 @@
                                         <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="TED-b7-29T">
-                                        <rect key="frame" x="0.0" y="1023" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="915" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TED-b7-29T" id="Kq7-ol-x36">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -446,7 +419,6 @@
                     <connections>
                         <outlet property="dateImage" destination="ybr-Wc-Pzh" id="dEb-fr-bJ2"/>
                         <outlet property="dateLabel" destination="lBJ-ON-AfK" id="3in-7E-WOk"/>
-                        <outlet property="descLabel" destination="FMk-LH-eIG" id="4Nu-2e-AJn"/>
                         <outlet property="locationLabel" destination="tcA-UH-Cas" id="3Rv-4U-PAI"/>
                         <outlet property="logoImage" destination="y6F-PD-tVF" id="hbh-G4-cNA"/>
                         <outlet property="mapView" destination="jWe-iz-c86" id="VBd-1d-eI4"/>
