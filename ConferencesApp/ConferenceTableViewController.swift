@@ -19,8 +19,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var descLabel: UILabel!
-    
     @IBOutlet weak var proposalImage: UIImageView!
     @IBOutlet weak var proposalLabel: UILabel!
     
@@ -43,7 +41,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         
         logoImage.hnk_setImageFromURL(url!)
         nameLabel.text = conference.name
-        descLabel.text = conference.detail
         proposalLabel.text = conference.cfp_text
         dateLabel.text = conference.when
         locationLabel.text = conference.location
