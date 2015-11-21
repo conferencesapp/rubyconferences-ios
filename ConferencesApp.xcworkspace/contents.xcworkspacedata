@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ConferencesApp/OrderedDictionary.swift">
+   </FileRef>
+   <FileRef
       location = "group:ConferencesApp.xcodeproj">
    </FileRef>
    <FileRef

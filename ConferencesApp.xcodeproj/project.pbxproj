@@ -10,7 +10,11 @@
 		4155EEC31BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; };
 		4155EEC41BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; };
 		5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
+		5B6916741BDC1F9A00CAE3F0 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916731BDC1F9A00CAE3F0 /* OrderedDictionary.swift */; };
+		5B6916751BDC1F9A00CAE3F0 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6916731BDC1F9A00CAE3F0 /* OrderedDictionary.swift */; };
 		5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69AAD51B074DF1001EDAF7 /* Reachability.swift */; };
+		5B96A4F31BDD685D00601FA8 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */; };
+		5B96A4F41BDD685D00601FA8 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
 		5BA999701B809C9500F81911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
 		5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */; };
@@ -76,8 +80,10 @@
 		244ADA0B84DA02347F850397 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDataStore.swift; sourceTree = "<group>"; };
 		5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConferencesApp.xcdatamodel; sourceTree = "<group>"; };
+		5B6916731BDC1F9A00CAE3F0 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
 		5B69AAD51B074DF1001EDAF7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../Reachability.swift; sourceTree = "<group>"; };
 		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
+		5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceWebViewController.swift; sourceTree = "<group>"; };
 		5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +168,8 @@
 		5BC663341AF3BEE400976284 /* ConferencesApp */ = {
 			isa = PBXGroup;
 			children = (
+				5B6916731BDC1F9A00CAE3F0 /* OrderedDictionary.swift */,
+				5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */,
 				4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */,
 				5B69AAD51B074DF1001EDAF7 /* Reachability.swift */,
 				5BC663371AF3BEE400976284 /* AppDelegate.swift */,
@@ -462,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B96A4F31BDD685D00601FA8 /* CustomHeaderCell.swift in Sources */,
 				5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */,
 				5BB5344D1B642A8F0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */,
@@ -469,6 +478,7 @@
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
 				5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */,
 				5B69AAD61B074DF1001EDAF7 /* Reachability.swift in Sources */,
+				5B6916741BDC1F9A00CAE3F0 /* OrderedDictionary.swift in Sources */,
 				5BC663381AF3BEE400976284 /* AppDelegate.swift in Sources */,
 				5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */,
 			);
@@ -487,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B96A4F41BDD685D00601FA8 /* CustomHeaderCell.swift in Sources */,
 				5BB534511B64321B0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				D87319AA1B340DBD00DD4BA2 /* ConferencesApp.xcdatamodeld in Sources */,
 				D87319AB1B340DBD00DD4BA2 /* Secrets.swift in Sources */,
@@ -494,6 +505,7 @@
 				5BA999741B80A65800F81911 /* ConferenceWebViewController.swift in Sources */,
 				D87319AE1B340DBD00DD4BA2 /* MainTableViewController.swift in Sources */,
 				D87319AF1B340DBD00DD4BA2 /* Reachability.swift in Sources */,
+				5B6916751BDC1F9A00CAE3F0 /* OrderedDictionary.swift in Sources */,
 				D87319B01B340DBD00DD4BA2 /* AppDelegate.swift in Sources */,
 				D87319B11B340DBD00DD4BA2 /* Conference.swift in Sources */,
 			);
