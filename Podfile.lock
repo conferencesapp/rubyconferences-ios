@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (2.0.2)
   - HanekeSwift (0.10.0)
+  - Intercom (2.3.15)
   - Realm (0.95.2):
     - Realm/Headers (= 0.95.2)
   - Realm/Headers (0.95.2)
@@ -10,12 +11,14 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 2.0)
   - HanekeSwift
+  - Intercom
   - RealmSwift (~> 0.95.2)
 
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
+  Intercom: 49dfec2dadadba595705e43b30f1148ed799fbc3
   Realm: 4c026902041bb39c4bd083ebc5e88f4f17973d72
   RealmSwift: ac7822fe7ab8dca7fa979f4d576793b111d6dce1
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
