@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .stringByTrimmingCharactersInSet( characterSet )
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
         
-        print("device token string \(deviceTokenString)")
         sendDevicetokentoServer(deviceTokenString)
     }
     
@@ -84,24 +83,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
-        if(application.applicationState == UIApplicationState.Background || application.applicationState == UIApplicationState.Inactive){
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void){
+        if(application.applicationState == .Background || application.applicationState == .Inactive){
             
             let id: Int = userInfo["id"] as! Int
-        
+            
             let realm = try! Realm()
             let conference = realm.objects(Conference).filter("id=\(id)")[0]
             let segue = UIStoryboard(name: "Main", bundle: nil)
             let viewController = segue.instantiateViewControllerWithIdentifier("ConferenceTableViewController") as!ConferenceTableViewController
             let rootViewController = self.window!.rootViewController as! UINavigationController
-        
-            viewController.conference = conference
-    
-            rootViewController.popToRootViewControllerAnimated(true)
-            rootViewController.pushViewController(viewController, animated: true)
             
-      }
+            viewController.conference = conference
+            
+            rootViewController.popToRootViewControllerAnimated(true)
+            rootViewController.pushViewController(viewController, animated: true)            
+        }
     }
     
     // MARK: - Core Data stack
