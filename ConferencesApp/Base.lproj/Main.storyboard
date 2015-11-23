@@ -121,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="1328" y="328"/>
         </scene>
-        <!--Conference Table View Controller-->
+        <!--ConferenceTableViewController-->
         <scene sceneID="YcO-cg-FvW">
             <objects>
-                <tableViewController id="axA-fb-0QH" customClass="ConferenceTableViewController" customModule="ConferencesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ConferenceTableViewController" id="axA-fb-0QH" userLabel="ConferenceTableViewController" customClass="ConferenceTableViewController" customModule="ConferencesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="50p-zF-3ZQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -706,7 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rubyconferences;
 				PRODUCT_NAME = rubyraven;
-				PROVISIONING_PROFILE = "cffa701e-51e6-4138-900e-c1766b1dab65";
+				PROVISIONING_PROFILE = "34103baa-a8b7-421d-9529-12fb5bb4a409";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

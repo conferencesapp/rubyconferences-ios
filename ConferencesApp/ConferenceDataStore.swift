@@ -75,8 +75,7 @@ class ConferenceDataStore {
 
                     conf.startDate = self.formatStartdate(data["start_date"] as! String)
                     realm.create(Conference.self, value: conf, update: true)
-                }
-
+                }                
             //delete expired confs
                 for(id) in removableIds{
                     let deleteConf = realm.objects(Conference).filter("id= \(id)")
