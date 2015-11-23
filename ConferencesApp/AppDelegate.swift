@@ -10,6 +10,7 @@
 import UIKit
 import Alamofire
 import RealmSwift
+import Intercom
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(pushSettings)
         application.registerForRemoteNotifications()
       
+        Intercom.setApiKey((intercomApiKey), forAppId: (intercomAppId))
+        Intercom.registerUnidentifiedUser()
         updateMigration()
         
         return true
