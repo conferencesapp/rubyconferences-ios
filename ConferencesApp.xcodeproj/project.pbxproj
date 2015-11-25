@@ -16,6 +16,7 @@
 		5B96A4F31BDD685D00601FA8 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */; };
 		5B96A4F41BDD685D00601FA8 /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */; };
 		5B9F0A5D1AF5023900EE70C8 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F0A5C1AF5023900EE70C8 /* Conference.swift */; };
+		5B9F56081C065CE90001C6EA /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F56071C065CE90001C6EA /* MainController.swift */; };
 		5BA999701B809C9500F81911 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6633B1AF3BEE400976284 /* Main.storyboard */; };
 		5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */; };
 		5BA999731B80A65600F81911 /* ConferenceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */; };
@@ -85,6 +86,7 @@
 		5B8B91B11B03EADF00C46A40 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Downloads/realm-swift-0.92.2/ios/RealmSwift.framework"; sourceTree = "<group>"; };
 		5B96A4F21BDD685D00601FA8 /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		5B9F0A5C1AF5023900EE70C8 /* Conference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
+		5B9F56071C065CE90001C6EA /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceWebViewController.swift; sourceTree = "<group>"; };
 		5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceTableViewController.swift; sourceTree = "<group>"; };
 		5BC663321AF3BEE400976284 /* ConferencesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConferencesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */,
 				5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */,
 				5BC663591AF3C18800976284 /* MainTableViewController.swift */,
+				5B9F56071C065CE90001C6EA /* MainController.swift */,
 				5B9F0A5C1AF5023900EE70C8 /* Conference.swift */,
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
 				5BC663401AF3BEE400976284 /* LaunchScreen.xib */,
@@ -474,6 +477,7 @@
 				5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */,
 				5BB5344D1B642A8F0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				5BDDDA481B11BA75006C4C28 /* Secrets.swift in Sources */,
+				5B9F56081C065CE90001C6EA /* MainController.swift in Sources */,
 				4155EEC31BCD414900569DC9 /* ConferenceDataStore.swift in Sources */,
 				5BC6635A1AF3C18800976284 /* MainTableViewController.swift in Sources */,
 				5BA999721B80A5EB00F81911 /* ConferenceWebViewController.swift in Sources */,
