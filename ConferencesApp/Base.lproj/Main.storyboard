@@ -9,14 +9,14 @@
         <!--Ruby Conferences-->
         <scene sceneID="YRh-Vv-oX8">
             <objects>
-                <tableViewController id="wTT-fA-PEW" customClass="MainTableViewController" customModule="ConferencesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="wTT-fA-PEW" customClass="MainTableViewController" customModule="ConferencesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h6j-Vs-qzC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" alpha="0.94999999999999996" contentMode="redraw" searchBarStyle="prominent" text="" placeholder="Name or Location or Date" showsCancelButton="YES" id="5UF-uC-8w4">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <color key="backgroundColor" red="0.32472334450000001" green="0.10242281809999999" blue="0.7883128157" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,7 +29,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="50" id="8N6-yd-BJz" customClass="CustomHeaderCell" customModule="ConferencesApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="66" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8N6-yd-BJz" id="0zR-aQ-oIX">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
@@ -58,7 +58,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="0mS-LU-ePr">
-                                <rect key="frame" x="0.0" y="180" width="600" height="120"/>
+                                <rect key="frame" x="0.0" y="116" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0mS-LU-ePr" id="EHs-wB-mxL">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>

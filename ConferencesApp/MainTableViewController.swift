@@ -12,6 +12,7 @@ import Haneke
 class MainTableViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
+    let topOffset: CGFloat = 64
 
     var conferences:[Conference] =  []
     var conferencesGroup = OrderedDictionary<String, [Conference]>()
@@ -29,6 +30,11 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate {
         self.tableView.addSubview(refreshControl!)
         searchBar.delegate = self
         searchBar.tintColor = UIColor(white:0.5, alpha: 1.5)
+        print(searchBar.frame.origin.x)
+        print(searchBar.frame.origin.y)
+        searchBar.frame = CGRectMake(0, topOffset, 320, 40)
+        self.tableView.contentInset = UIEdgeInsetsMake(self.searchBar.frame.size.height, 0, 0, 0)
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.searchBar.frame.size.height, 0, 0, 0)
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "ConferencesUpdatedNotificationHandler:",
             name:"ConferencesUpdatedNotification", object: nil)
@@ -59,6 +65,16 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate {
         let values = conferencesData()[section].1
 
         return values[row]
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        print("======================")
+        var frame: CGRect = self.searchBar.frame
+        frame.origin.y = scrollView.contentOffset.y + topOffset
+        //frame.origin.y = 0
+        print(frame.origin.y)
+        
+        self.searchBar.frame = frame
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
