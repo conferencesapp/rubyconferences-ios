@@ -55,6 +55,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         startDate =  conference.startDate
         endDate = conference.endDate
         calendarEventID = conferenceDataStore?.calendarEventIDFor(conference)
+        dateImage.userInteractionEnabled = true
 
         setTapGestureOnDateImage()
 
