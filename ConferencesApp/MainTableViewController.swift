@@ -130,6 +130,7 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("headerCell") as! CustomHeaderCell
         headerCell.headerLabel.sizeToFit()
+        headerCell.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
         headerCell.headerLabel.text = conferencesData()[section].0
 
         return headerCell
