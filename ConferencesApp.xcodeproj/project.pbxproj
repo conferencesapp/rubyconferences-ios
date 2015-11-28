@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414CA9E01C098E9300927D62 /* CalendarEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA9DF1C098E9300927D62 /* CalendarEventData.swift */; };
 		4155EEC31BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; };
 		4155EEC41BCD414900569DC9 /* ConferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */; };
 		5B1F807D1B02997C004B97C5 /* ConferencesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B1F807B1B02997C004B97C5 /* ConferencesApp.xcdatamodeld */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		145E60EEBD0DFE8CD1CFBA57 /* Pods-rubyconferences.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rubyconferences.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rubyconferences/Pods-rubyconferences.debug.xcconfig"; sourceTree = "<group>"; };
 		244ADA0B84DA02347F850397 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		414CA9DF1C098E9300927D62 /* CalendarEventData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventData.swift; sourceTree = "<group>"; };
 		4155EEC21BCD414900569DC9 /* ConferenceDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceDataStore.swift; sourceTree = "<group>"; };
 		5B1F807C1B02997C004B97C5 /* ConferencesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ConferencesApp.xcdatamodel; sourceTree = "<group>"; };
 		5B6916731BDC1F9A00CAE3F0 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				5BC6633B1AF3BEE400976284 /* Main.storyboard */,
 				5BA999711B80A5EB00F81911 /* ConferenceWebViewController.swift */,
 				5BB5344C1B642A8F0030CC9D /* ConferenceTableViewController.swift */,
+				414CA9DF1C098E9300927D62 /* CalendarEventData.swift */,
 				5BC663591AF3C18800976284 /* MainTableViewController.swift */,
 				5B9F0A5C1AF5023900EE70C8 /* Conference.swift */,
 				5BC6633E1AF3BEE400976284 /* Images.xcassets */,
@@ -501,6 +504,7 @@
 				5BB534511B64321B0030CC9D /* ConferenceTableViewController.swift in Sources */,
 				D87319AA1B340DBD00DD4BA2 /* ConferencesApp.xcdatamodeld in Sources */,
 				D87319AB1B340DBD00DD4BA2 /* Secrets.swift in Sources */,
+				414CA9E01C098E9300927D62 /* CalendarEventData.swift in Sources */,
 				4155EEC41BCD414900569DC9 /* ConferenceDataStore.swift in Sources */,
 				5BA999741B80A65800F81911 /* ConferenceWebViewController.swift in Sources */,
 				D87319AE1B340DBD00DD4BA2 /* MainTableViewController.swift in Sources */,
