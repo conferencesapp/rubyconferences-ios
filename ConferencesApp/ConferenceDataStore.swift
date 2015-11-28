@@ -74,6 +74,7 @@ class ConferenceDataStore {
                     }
 
                     conf.startDate = self.formatStartdate(data["start_date"] as! String)
+                    conf.endDate   = self.formatStartdate(data["end_date"] as! String)
                     realm.create(Conference.self, value: conf, update: true)
                 }                
             //delete expired confs
@@ -85,6 +86,50 @@ class ConferenceDataStore {
         } catch {
             print("Error")
         }
+    }
+
+    func updateCalendarEventIdentifier(conf: Conference, eventId: String) {
+
+        let realm = try! Realm()
+
+        do {
+            try realm.write {
+                let calEvent =  CalendarEventData()
+                calEvent.id = conf.id
+                calEvent.eventID = eventId
+
+                realm.create(CalendarEventData.self, value: calEvent, update: true)
+
+                print("Updated calenderEventID")
+            }
+        } catch {
+            print("Could not save calendar event ID in database.")
+        }
+    }
+
+    func deleteCalendarEventData(conf: Conference) -> Void {
+        let realm = try! Realm()
+
+        do {
+            if let eventData = try realm.objectForPrimaryKey(CalendarEventData.self, key: conf.id) {
+                try realm.write {
+                    realm.delete(eventData)
+                }
+            }
+        } catch {
+            print("No calendar event for this conference.")
+        }
+    }
+
+    func calendarEventIDFor(conf: Conference) -> String {
+        do {
+            if let eventData = try Realm().objectForPrimaryKey(CalendarEventData.self, key: conf.id) {
+                return eventData.eventID
+            }
+        } catch {
+            print("No calendar event for this conference.")
+        }
+        return ""
     }
 
     func formatTwitterUsername(username: String) -> String{
