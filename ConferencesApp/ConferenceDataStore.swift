@@ -89,7 +89,6 @@ class ConferenceDataStore {
     }
 
     func updateCalendarEventIdentifier(conf: Conference, eventId: String) {
-
         let realm = try! Realm()
 
         do {

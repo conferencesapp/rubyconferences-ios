@@ -20,7 +20,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     var endDate: NSDate!
     var calendarEventID: String!
 
-
     @IBOutlet weak var logoImage: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -150,7 +149,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
                     dispatch_async(dispatch_get_main_queue()) {
                         self.addCalendarEventtoStore(eventStore)
                     }
-
                 } else { // Event Already present in calendar.
                     dispatch_async(dispatch_get_main_queue()) {
                         self.deleteEventFromStore(eventStore, eventID:self.calendarEventID)
@@ -171,7 +169,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         event.calendar = eventStore.defaultCalendarForNewEvents
 
         let alertController = UIAlertController(title: "Create Event.",
-            message: "Create Event in Calender ?", preferredStyle: .Alert)
+            message: "Create Event in Calendar ?", preferredStyle: .Alert)
 
         let createAction = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
             do {
@@ -196,12 +194,11 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     func deleteEventFromStore(eventStore: EKEventStore, eventID: String) {
         if let event = eventStore.eventWithIdentifier(eventID) {
             let alertController = UIAlertController(title: "Delete Event.",
-                message: "Delete Event from Calender ?", preferredStyle: .Alert)
+                message: "Delete Event from Calendar ?", preferredStyle: .Alert)
 
             let deleteAction = UIAlertAction(title: "Delete", style: .Default) { (action) -> Void in
                 do {
                     try eventStore.removeEvent(event, span: EKSpan.ThisEvent, commit: true)
-
                 } catch _ {
                     print("Failed to delete event")
                 }
@@ -217,7 +214,6 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
             alertController.addAction(cancelAction)
 
             self.presentViewController(alertController, animated: true, completion: nil)
-
         } else {
             // Could not find event, so delete Event Data.
             // This can happen if user has deleted event manually from calendar.
