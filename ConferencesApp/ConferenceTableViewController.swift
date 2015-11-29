@@ -10,10 +10,15 @@ import UIKit
 import MapKit
 import Haneke
 import AddressBook
+import EventKit
 
 class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
     var conference = Conference()
-
+    var conferenceDataStore: ConferenceDataStore?
+    var conferenceName: String!
+    var startDate: NSDate!
+    var endDate: NSDate!
+    var calendarEventID: String!
 
     @IBOutlet weak var logoImage: UIImageView!
     
@@ -44,6 +49,14 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
         proposalLabel.text = conference.cfp_text
         dateLabel.text = conference.when
         locationLabel.text = conference.location
+
+        conferenceName = conference.name
+        startDate =  conference.startDate
+        endDate = conference.endDate
+        calendarEventID = conferenceDataStore?.calendarEventIDFor(conference)
+        dateImage.userInteractionEnabled = true
+
+        setTapGestureOnDateImage()
 
         twitterButton.setTitle(conference.twitter_username, forState: .Normal)
         twitterImageButton.addTarget(self, action: "openTwitterApp", forControlEvents: .TouchUpInside)
@@ -117,6 +130,96 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
                 let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(venueLocation, theSpan)
 
         return theRegion
+    }
+
+    func setTapGestureOnDateImage() {
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.addTarget(self, action: "tapOnDateImageHandler:")
+        dateImage.addGestureRecognizer(tapGesture)
+    }
+
+    func tapOnDateImageHandler(sender: UITapGestureRecognizer) {
+        let eventStore = EKEventStore()
+
+        eventStore.requestAccessToEntityType(EKEntityType.Event, completion: {
+            granted, error in
+            if (granted) && (error == nil) {
+                if self.calendarEventID.isEmpty {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.addCalendarEventtoStore(eventStore)
+                    }
+                } else { // Event Already present in calendar.
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.deleteEventFromStore(eventStore, eventID:self.calendarEventID)
+                    }
+                }
+            }
+        })
+    }
+
+    func addCalendarEventtoStore(eventStore: EKEventStore) {
+        let event: EKEvent = EKEvent(eventStore: eventStore)
+        event.title = self.conferenceName
+        event.startDate = self.startDate
+        event.endDate = self.endDate
+        event.location = self.locationLabel.text
+        event.allDay = true
+
+        event.calendar = eventStore.defaultCalendarForNewEvents
+
+        let alertController = UIAlertController(title: "Create Event.",
+            message: "Create Event in Calendar ?", preferredStyle: .Alert)
+
+        let createAction = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
+            do {
+                try eventStore.saveEvent(event, span: EKSpan.ThisEvent, commit: true)
+                self.calendarEventID = event.eventIdentifier
+
+                self.conferenceDataStore?.updateCalendarEventIdentifier(self.conference,
+                    eventId:event.eventIdentifier)
+            } catch {
+                print("Failed to create an event in Calendar.")
+            }
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler:nil )
+
+        alertController.addAction(createAction)
+        alertController.addAction(cancelAction)
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    func deleteEventFromStore(eventStore: EKEventStore, eventID: String) {
+        if let event = eventStore.eventWithIdentifier(eventID) {
+            let alertController = UIAlertController(title: "Delete Event.",
+                message: "Delete Event from Calendar ?", preferredStyle: .Alert)
+
+            let deleteAction = UIAlertAction(title: "Delete", style: .Default) { (action) -> Void in
+                do {
+                    try eventStore.removeEvent(event, span: EKSpan.ThisEvent, commit: true)
+                } catch _ {
+                    print("Failed to delete event")
+                }
+
+                self.calendarEventID = ""
+                self.conferenceDataStore?.updateCalendarEventIdentifier(
+                    self.conference, eventId:"")
+            }
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default, handler:nil )
+
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            // Could not find event, so delete Event Data.
+            // This can happen if user has deleted event manually from calendar.
+            self.conferenceDataStore?.deleteCalendarEventData(self.conference)
+            self.calendarEventID = ""
+        }
     }
 
     func openTwitterApp(){

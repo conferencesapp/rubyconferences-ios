@@ -191,6 +191,7 @@ class MainTableViewController: UITableViewController, UISearchBarDelegate {
             let conferenceInfo = conferenceRow(section!, row: selectedRow!)
 
             let viewController = segue.destinationViewController as! ConferenceTableViewController
+            viewController.conferenceDataStore = self.conferenceDataStore
             viewController.conference = conferenceInfo
         }
     }
