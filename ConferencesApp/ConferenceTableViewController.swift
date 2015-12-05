@@ -168,7 +168,7 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
 
         event.calendar = eventStore.defaultCalendarForNewEvents
 
-        let alertController = UIAlertController(title: "Create Event.",
+        let alertController = UIAlertController(title: "",
             message: "Would you like to add \(conference.name) event in your calender?", preferredStyle: .Alert)
 
         let createAction = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
@@ -193,8 +193,8 @@ class ConferenceTableViewController: UITableViewController, MKMapViewDelegate {
 
     func deleteEventFromStore(eventStore: EKEventStore, eventID: String) {
         if let event = eventStore.eventWithIdentifier(eventID) {
-            let alertController = UIAlertController(title: "Delete Event.",
-                message: "Would you like to remove \(conference.name) event from your calendar?", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "",
+                message: "Would you like to remove \(conference.name) even from your calendar?", preferredStyle: .Alert)
 
             let deleteAction = UIAlertAction(title: "Delete", style: .Default) { (action) -> Void in
                 do {
